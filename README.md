@@ -18,7 +18,7 @@ Functions are concisely named to match the naming style of C standard library fu
 ### Features
 - [X] Memory usage scales with the array size
 - [X] Supports most features of a C++ vector, excluding iterators and time complexity
-- [ ] Quality of life features that C++ vectors do not have, such as printing the list, sum, product, etc...
+- [X] Quality of life features that C++ vectors do not have, such as printing the list, sum, product, etc...
 - [ ] Ability to store data types other than integers using void pointers (May cause significant changes to code structure, function return values, function behavior, and function parameters)
 - [ ] Speed of a C++ vector (unlikely)
 
