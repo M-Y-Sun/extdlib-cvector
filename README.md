@@ -7,17 +7,20 @@ Setting an upper bound could waste tons of memory and be hard to keep track of.
 When developers are limited to using C, a simple dynamic array makes code simpler and take less memory.
 Functions are concisely named to match the naming style of C standard library functions, such as a function named ```spop_v``` compared to ```sscanf_s``` in ```<stdlib.h>```.
 
-### Compilation and Usage
+### Compilation
 1. Place the source file named "vector.c" in a desired directory (ex. ~/extdlib/c/vector.c).
 2. Add -L[filepath] to your compile flags
 3. Compile as normal (ex. gcc -L~/extdlib/c/ main.c -o main)
+
+### Usage
+* See ```GUIDELINES.md``` for correct usage of project
 
 ### Features
 - [X] Memory usage scales with the array size
 - [X] Supports most features of a C++ vector, excluding iterators and time complexity
 - [ ] Quality of life features that C++ vectors do not have, such as printing the list, sum, product, etc...
 - [ ] Ability to store data types other than integers using void pointers (May cause significant changes to code structure, function return values, function behavior, and function parameters)
-- [ ] Speed of a C++ vector
+- [ ] Speed of a C++ vector (unlikely)
 
 ### Important
 * Currently is only able to store integer data

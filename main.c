@@ -43,6 +43,14 @@ int main(void){
 
     printf("(first value, last value): (%d, %d)\n", front_v(vector), back_v(vector));
 
+    printf("elements 0 to 1: ");
+    print_v(vector, 0, 2);
+    printf("final vector: ");
+    print_v(vector, 0, size_v(vector));
+
+    printf("sum of all elements: %lld\n", sum_v(vector, 0, size_v(vector)));
+    printf("product of elements 1 to 2: %lld\n", prod_v(vector, 1, size_v(vector)));
+
     cleanup_v(vector);
     printf("cleanup finished\n");
 

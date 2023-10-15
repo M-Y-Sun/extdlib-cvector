@@ -4,7 +4,7 @@ Guidelines for Usage and Committing
 ## Usage
 * Do not directly access member variables of any struct
 * Do not use the ```llong``` typedef defined in ```vector.c``` to prevent implicit declarations. Declare again explicitly if needed.
-* Always explicitly include ```<stdio.h>``` and ```<stdlib.h>``` to prevent implicit declarations.
+* Always explicitly include ```<stdio.h>```, ```<stdlib.h>```, and ```<limits.h>``` to prevent implicit declarations.
 * Do not use any functions that are not listed in the <i>User Functions</i> section.
 
 ## Committing
