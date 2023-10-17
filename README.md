@@ -8,7 +8,7 @@ When developers are limited to using C, a simple dynamic array makes code simple
 Functions are concisely named to match the naming style of C standard library functions, such as a function named ```spop_v``` compared to ```sscanf_s``` in ```<stdlib.h>```.
 
 ### Compilation
-1. Place the source file named "vector.c" in a desired directory (ex. ~/extdlib/c/vector.c).
+1. Place the header file named ```vector.h``` in any directory (ex. ~/extdlib/c/vector.h).
 2. Add -L[filepath] to your compile flags
 3. Compile as normal (ex. gcc -L~/extdlib/c/ main.c -o main)
 

@@ -3,7 +3,7 @@ Guidelines for Usage and Committing
 
 ## Usage
 * Do not directly access member variables of any struct
-* Do not use the ```llong``` typedef defined in ```vector.c``` to prevent implicit declarations. Declare again explicitly if needed.
+* Do not use the ```llong``` typedef defined in ```vector.h``` to prevent implicit declarations. Declare again explicitly if needed.
 * Always explicitly include ```<stdio.h>```, ```<stdlib.h>```, and ```<limits.h>``` to prevent implicit declarations.
 * Do not use any functions that are not listed in the <i>User Functions</i> section.
 
@@ -36,7 +36,7 @@ void func(Vec *vec){
 ```
 
 ## User Functions
-Users of this project are restricted to certain functions in ```vector.c```, listed below:
+Users of this project are restricted to certain functions in ```vector.h```, listed below:
 
 Must Include:
 * ```setup_v()```
