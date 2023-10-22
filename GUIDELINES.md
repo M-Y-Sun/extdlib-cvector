@@ -16,7 +16,7 @@ Guidelines for Usage and Committing
 void devfunc(Vec *vec);
 ```
 * Function names should not include underscores other than the ```_v``` prefix
-* Place functions in the correct file based on category: ```mandatory```, ```read only```, ```modifier```, and ```quality of life```
+* Place functions in the correct file based on category: ```mandatory```, ```read only```, ```modifier```, and ```quality of life```. Functions under the mandatory category should be placed in ```vector.c```, other categories have their separate file
 * Separate each category with four new lines in ```vector.h```, separate category title with one new line, and do not leave a new line between function descriptions and function declaration, following the example below:
 ```c
 // category name
@@ -30,11 +30,12 @@ void func(Vec *vec);
 // next category name
 // ...
 ```
+* Please use the makefile to compile if possible, as the makefile compilation command uses ```clang```
 
 ## User Functions
 Users of this project are restricted to certain functions in ```vector.h```, listed below:
 
-Must Include:
+Mandatory:
 * ```setup_v()```
 * ```cleanup_v()```
 
