@@ -4,4 +4,4 @@ BINARY = bin/main
 
 all: src/main.c 
 	clang $(CFLAGS) $(BINARY) $(SOURCE)
-	mv bin/main.dSYM debug
+	mv bin/main.dSYM/ debug
