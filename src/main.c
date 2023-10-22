@@ -8,9 +8,9 @@ int main(void){
 
     // vassign(vector, 3);
 
-    Elem *e1 = push_v(vector, 0);
-    Elem *e2 = push_v(vector, 1);
-    Elem *e3 = push_v(vector,2);
+    push_v(vector, 0);
+    push_v(vector, 1);
+    push_v(vector,2);
 
     printf("size: %lu\n", size_v(vector));
     printf("0th index: %d\n", get_v(vector, 0));

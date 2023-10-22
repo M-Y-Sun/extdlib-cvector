@@ -1,48 +1,15 @@
-#ifndef VECTOR_C
-#define VECTOR_C
+//modifier functions
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
+#ifndef FUNC_MODIFIER_C
+#define FUNC_MODIFIER_C
 
-// devonly
-typedef long long llong;
+#include "vector.h"
+#include "structs.h"
 
-// devonly
-// each element in a vector will be of type Elem
-typedef struct Elem{
-    int data;
-    struct Elem *next;
-}Elem;
-
-// declaring a vector will create a new variable of type Vec. contains the size and the first element
-typedef struct Vec{
-    size_t size;
-    Elem *front;
-}Vec;
-
-// helper function; devonly
-// gets the element iterator to the requested beginning of the operation
-Elem *iter_begin(Vec *vec, size_t beg){
-    Elem *iter = vec->front;
-    for(size_t i = 0; i < beg; ++i){
-        iter = iter->next;
-    }
-    return iter;
-}
-
-
-// must include
-
-// initialization
-void setup_v(Vec *vec){
-    vec->size = 0;
-    vec->front = NULL;
-}
-
-// free all the memory
-void cleanup_v(Vec *vec){
-    if(vec->size < 2){  // if it is empty (contains only a NULL element) or has only 1 element
+// clears everything in the vector
+void clear_v(Vec *vec){
+    // cleanup function
+    if(vec->size < 2){
         free(vec->front);
         return;
     }
@@ -54,52 +21,7 @@ void cleanup_v(Vec *vec){
         free(ptr1);
     }
     if(ptr2 == NULL) free(ptr2);
-}
 
-
-
-
-// read only functions
-
-// returns the length of the vector
-size_t size_v(Vec *vec){return vec->size;}
-
-// returns the first value
-int front_v(Vec *vec){return vec->front->data;}
-
-// returns the last value
-int back_v(Vec *vec){
-    Elem *iter = vec->front;
-    for(size_t i = 0; i < vec->size - 1; ++i){
-        iter = iter->next;
-    }
-    return iter->data;
-}
-
-// gets the value at a certain position
-int get_v(Vec *vec, size_t pos){
-    Elem *iter = vec->front;
-    for(size_t i = 0; i < pos; ++i){
-        iter = iter->next;
-    }
-    int data = iter->data;
-    return data;
-}
-
-// checks if the vector is empty (1 = true; 0 = false)
-int empty_v(Vec *vec){
-    if(vec->front == NULL) return 1;
-    return 0;
-}
-
-
-
-
-//modifier functions
-
-// clears everything in the vector
-void clear_v(Vec *vec){
-    cleanup_v(vec);
     vec->front = NULL;
 }
 
@@ -156,7 +78,7 @@ void resize_v(Vec *vec, size_t size, int data){
 }
 
 // adds an element to the end
-Elem *push_v(Vec *vec, int data){
+void push_v(Vec *vec, int data){
     Elem *new = (Elem*)malloc(sizeof(Elem));
     if(vec->front == NULL){ // if empty
         new->data = data;
@@ -177,8 +99,6 @@ Elem *push_v(Vec *vec, int data){
         prev->next = cur;
     }
     ++(vec->size);
-
-    return new;
 }
 
 // changes the value of an element at a specified position
@@ -271,52 +191,6 @@ void qpop_v(Vec *vec){  // check if this works properly with debugger
     vec->front = vec->front->next;
     free(rm);
     --(vec->size);
-}
-
-
-
-
-// quality of life functions (read only)
-
-// prints the vector in a certain range of [beg, end)
-// format: [ 0 , 1 , 2 , 3 ]
-void print_v(Vec *vec, size_t beg, size_t end){
-    Elem *iter = iter_begin(vec, beg);
-
-    printf("[ ");
-    for(size_t i = beg; i < end; ++i){
-        if(i != end - 1) printf("%d , ", iter->data);
-        else printf("%d", iter->data);
-        iter = iter->next;
-    }
-    printf(" ]\n");
-}
-
-// gets the sum of the elements of a vector in a certain range, returns 0 if it exceeds limit
-llong sum_v(Vec *vec, size_t beg, size_t end){
-    Elem *iter = iter_begin(vec, beg);
-    
-    llong sum = 0;
-    for(size_t i = beg; i < end; ++i){
-        if(LLONG_MAX - iter->data <= sum) return 0;  // exceeds limit
-        sum += iter->data;
-        iter = iter->next;
-    }
-    return sum;
-}
-
-// gets the product of the elements of a vector in a certain range, returns 0 if it exceeds limit
-llong prod_v(Vec *vec, size_t beg, size_t end){
-    Elem *iter = iter_begin(vec, beg);
-
-    llong prod = 1;
-    for(size_t i = beg; i < end; ++i){
-        if(iter->data == 0) return 0;  // if there is a 0 anywhere in range the product will always be 0
-        if(LLONG_MAX / iter->data <= prod) return 0;
-        prod = prod * iter->data;
-        iter = iter->next;
-    }
-    return prod;
 }
 
 #endif
