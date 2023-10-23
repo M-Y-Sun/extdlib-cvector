@@ -1,8 +1,17 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * structs.c                                                                     *
+ *                                                                               *
+ * Includes function prototypes (declarations) for functions in all categories.  *
+ * Functions are separated by category based on which file they are defined in.  *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 #ifndef VECTOR_H
 #define VECTOR_H
 
 // Vec struct and Elem struct
 #include "structs.h"
+
+typedef long long llong;
 
 // helper function; devonly
 // gets the element iterator to the requested beginning of the operation

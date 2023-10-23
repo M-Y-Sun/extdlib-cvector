@@ -1,4 +1,9 @@
-// read only functions
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * func_readonly.c                                                 *
+ *                                                                 *
+ * Inculdes functions that obtain data from the vector.            *
+ * Vector will be unchanged after function call.                   *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef FUNC_READONLY_C
 #define FUNC_READONLY_C

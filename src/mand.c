@@ -1,5 +1,11 @@
-#ifndef VECTOR_C
-#define VECTOR_C
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * mand.c                                                          *
+ *                                                                 *
+ * Includes mandatory functions that must be run                   *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#ifndef MAND_C
+#define MAND_C
 
 #include "vector.h"
 #include "structs.h"

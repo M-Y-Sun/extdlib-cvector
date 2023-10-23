@@ -1,4 +1,9 @@
-// quality of life functions (read only)
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * func_qualoflife.c                                               *
+ *                                                                 *
+ * Inculdes functions that improve the user experience.            *
+ * Such functions do not exist for C++ vectors.                    *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef FUNC_QUALOFLIFE_C
 #define FUNC_QUALOFLIFE_C
@@ -8,6 +13,8 @@
 
 #include "vector.h"
 #include "structs.h"
+
+typedef long long llong;
 
 // prints the vector in a certain range of [beg, end)
 // format: [ 0 , 1 , 2 , 3 ]
