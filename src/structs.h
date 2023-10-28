@@ -1,9 +1,16 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * structs.c                                                       *
- *                                                                 *
- * Includes the structs used for the vector                        *
- * Everything in this file should be used by the developer only.   *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:
+ * structs.h                                                   
+ *                                                                 
+ * PURPOSE: 
+ * Includes the structs used for the vector
+ *
+ * EXTERNAL REFERENCES:
+ * 'size_t' type            (from <stdlib.h>)
+ *
+ * NOTES:
+ * Everything in this file should be used by the developer only.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef STRUCTS_H
 #define STRUCTS_H

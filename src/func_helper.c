@@ -1,12 +1,18 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * func_helper.c                                                   *
- *                                                                 *
- * includes helper functions for developer convenience.            *
- * Functions in this file should only be used by the developer.    *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-#ifndef FUNC_HELPER_C
-#define FUNC_HELPER_C
+ /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:
+ * func_helper.c                                                   
+ *                                                                 
+ * PURPOSE: 
+ * includes helper functions for developer convenience.            
+ *
+ * EXTERNAL REFERENCES:
+ * 'size_t' type    (from <stdlib.h>)
+ * 'Vec' struct     (from "structs.h")
+ * 'Elem' struct    (from "structs.h")
+ *
+ * NOTES:
+ * Functions in this file should only be used by the developer.    
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "vector.h"
 #include "structs.h"
@@ -19,5 +25,3 @@ Elem *iter_begin(Vec *vec, size_t beg){
     }
     return iter;
 }
-
-#endif

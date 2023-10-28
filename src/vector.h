@@ -1,9 +1,14 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * structs.c                                                                     *
- *                                                                               *
- * Includes function prototypes (declarations) for functions in all categories.  *
- * Functions are separated by category based on which file they are defined in.  *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:
+ * vector.h                                                   
+ *                                                                 
+ * PURPOSE: 
+ * Includes function declarations/prototypes for all functions
+ *
+ * EXTERNAL REFERENCES:
+ * 'size_t' type            (from <stdlib.h>)
+ * 'Vec' struct             (from 'structs.h')
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef VECTOR_H
 #define VECTOR_H

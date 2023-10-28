@@ -1,17 +1,26 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * func_qualoflife.c                                               *
- *                                                                 *
- * Inculdes functions that improve the user experience.            *
- * Such functions do not exist for C++ vectors.                    *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-#ifndef FUNC_QUALOFLIFE_C
-#define FUNC_QUALOFLIFE_C
+ /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:
+ * func_qualoflife.c                                                   
+ *                                                                 
+ * PURPOSE: 
+ * Includes functions that improve the user experience.
+ *
+ * EXTERNAL REFERENCES:
+ * 'size_t' type            (from <stdlib.h>)
+ * 'printf' function        (from <stdio.h>)
+ * 'LLONG_MAX' value        (from <limits.h>)
+ * 'Vec' struct             (from "structs.h")
+ * 'Elem' struct            (from "structs.h")
+ * 'iter_begin' function    (from "devhelper.h")
+ *
+ * NOTES:
+ * Such functions do not exist for C++ vectors.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <stdio.h>
 #include <limits.h>
-
 #include "vector.h"
+#include "devhelper.h"
 #include "structs.h"
 
 typedef long long llong;
@@ -56,5 +65,3 @@ llong prod_v(Vec *vec, size_t beg, size_t end){
     }
     return prod;
 }
-
-#endif

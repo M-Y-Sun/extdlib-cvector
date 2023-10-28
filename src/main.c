@@ -1,9 +1,15 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * func_readonly.c                                                 *
- *                                                                 *
- * Inculdes functions that obtain data from the vector.            *
- * Vector will be unchanged after function call.                   *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:
+ * main.c                                                   
+ *                                                                 
+ * PURPOSE: 
+ * Demonstration for all available functions.
+ *
+ * EXTERNAL REFERENCES:
+ * all functions declared in "vector.h"
+ * 'printf' function        (from <stdio.h>)
+ * 'malloc' function        (from <stdlib.h>)
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <stdio.h>
 #include <stdlib.h>

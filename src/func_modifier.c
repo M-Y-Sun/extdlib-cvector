@@ -1,9 +1,20 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * func_modifier.c                                                 *
- *                                                                 *
- * Inculdes functions that modify the vector.                      *
- * Modifications may include change in size or specific elements.  *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:
+ * func_modifier.c                                                   
+ *                                                                 
+ * PURPOSE: 
+ * Includes functions that modify the vector.
+ *
+ * EXTERNAL REFERENCES:
+ * 'size_t' type    (from <stdlib.h>)
+ * 'free' function      (from <stdlib.h>)
+ * 'malloc' function    (from <stdlib.h>)
+ * 'Vec' struct         (from "structs.h")
+ * 'Elem' struct        (from "structs.h")
+ *
+ * NOTES:
+ * Modifications may include change in size or specific elements.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef FUNC_MODIFIER_C
 #define FUNC_MODIFIER_C

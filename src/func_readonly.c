@@ -1,9 +1,18 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * func_readonly.c                                                 *
- *                                                                 *
- * Inculdes functions that obtain data from the vector.            *
- * Vector will be unchanged after function call.                   *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:
+ * func_readonly.c                                                   
+ *                                                                 
+ * PURPOSE: 
+ * Includes functions that obtain data from the vector.
+ *
+ * EXTERNAL REFERENCES:
+ * 'size_t' type            (from <stdlib.h>)
+ * 'Vec' struct             (from "structs.h")
+ * 'Elem' struct            (from "structs.h")
+ *
+ * NOTES:
+ * Vector will be unchanged after funcion call.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef FUNC_READONLY_C
 #define FUNC_READONLY_C

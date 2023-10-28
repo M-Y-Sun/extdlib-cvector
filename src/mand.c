@@ -3,9 +3,19 @@
  *                                                                 *
  * Includes mandatory functions that must be run                   *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-#ifndef MAND_C
-#define MAND_C
+ /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:
+ * mand.c                                                   
+ *                                                                 
+ * PURPOSE: 
+ * Includes mandatory functions that must be run 
+ *
+ * EXTERNAL REFERENCES:
+ * 'size_t' type            (from <stdlib.h>)
+ * 'free' function          (from <stdlib.h>)
+ * 'Vec' struct             (from 'structs.h')
+ * 'Elem' struct            (from 'structs.h')
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "vector.h"
 #include "structs.h"
@@ -33,5 +43,3 @@ void cleanup_v(Vec *vec){
     }
     if(ptr2 == NULL) free(ptr2);
 }
-
-#endif
