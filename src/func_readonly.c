@@ -7,6 +7,7 @@
  *
  * EXTERNAL REFERENCES:
  * 'size_t' type            (from <stdlib.h>)
+ * 'perror' function        (from <stdio.h>)
  * 'Vec' struct             (from "structs.h")
  * 'Elem' struct            (from "structs.h")
  *
@@ -17,6 +18,7 @@
 #ifndef FUNC_READONLY_C
 #define FUNC_READONLY_C
 
+#include <stdio.h>
 #include "vector.h"
 #include "structs.h"
 
@@ -37,6 +39,11 @@ int back_v(Vec *vec){
 
 // gets the value at a certain position
 int get_v(Vec *vec, size_t pos){
+    if(pos < 0 || pos >= vec->size){  // if requested size is negative or out of bounds
+        perror("requested position out of bounds");
+        return 0;
+    }
+
     Elem *iter = vec->front;
     for(size_t i = 0; i < pos; ++i){
         iter = iter->next;

@@ -9,14 +9,15 @@ Guidelines for Usage and Committing
 
 ## Committing
 * Do not add features that require the user to directly access member variables of a struct or create an instance of the ```Elem``` type
-* Always mark functions intended for developer use only as ```devonly``` in a comment above the function <u>only in the header file</u>, following the below example:
+* File contents intended only for developer use only should be stated in the block comment prolog.
+* Individual functions intended for developer use only should be marked as as ```devonly``` in a comment above the function <u>only in the header file</u>, following the below example:
 ```c
 // devonly
 // function description
 void devfunc(Vec *vec);
 ```
 * Function names should not include underscores other than the ```_v``` prefix
-* Place functions in the correct file based on category: ```mandatory```, ```read only```, ```modifier```, and ```quality of life```. Functions under the mandatory category should be placed in ```vector.c```, other categories have their separate file
+* Place functions in the correct file based on category: ```mandatory```, ```read only```, ```modifier```, and ```quality of life```.
 * Separate each category with four new lines in ```vector.h```, separate category title with one new line, and do not leave a new line between function descriptions and function declaration, following the example below:
 ```c
 // category name
