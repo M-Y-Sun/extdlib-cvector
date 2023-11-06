@@ -14,7 +14,7 @@ Guidelines for Usage and Committing
 ```c
 // devonly
 // function description
-void devfunc(Vec *vec);
+void devfunc(vec_t *vec);
 ```
 * Function names should not include underscores other than the ```_v``` prefix
 * Place functions in the correct file based on category: ```mandatory```, ```read only```, ```modifier```, and ```quality of life```.
@@ -23,7 +23,7 @@ void devfunc(Vec *vec);
 // category name
 
 // function description
-void func(Vec *vec);
+void func(vec_t *vec);
 
 
 

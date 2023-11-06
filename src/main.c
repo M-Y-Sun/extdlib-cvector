@@ -16,7 +16,7 @@
 #include "vector.h"
 
 int main(void){
-    Vec *vector = (Vec*)malloc(sizeof(Vec));
+    vec_t *vector = (vec_t*)malloc(sizeof(vec_t));
     setup_v(vector);  // set up the vector
 
     // vassign(vector, 3);  <- sets the vector to size 3 with values of 0. Only works when vector is empty

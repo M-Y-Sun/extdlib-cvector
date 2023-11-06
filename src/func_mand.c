@@ -13,8 +13,8 @@
  * EXTERNAL REFERENCES:
  * 'size_t' type            (from <stdlib.h>)
  * 'free' function          (from <stdlib.h>)
- * 'Vec' struct             (from 'structs.h')
- * 'Elem' struct            (from 'structs.h')
+ * 'vec_t' struct             (from 'structs.h')
+ * 'elem_t' struct            (from 'structs.h')
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "vector.h"
@@ -23,19 +23,19 @@
 // mandatory functions
 
 // initialization
-void setup_v(Vec *vec){
+void setup_v(vec_t *vec){
     vec->size = 0;
     vec->front = NULL;
 }
 
 // free all the memory
-void cleanup_v(Vec *vec){
+void cleanup_v(vec_t *vec){
     if(vec->size < 2){  // if it is empty (contains only a NULL element) or has only 1 element
         free(vec->front);
         return;
     }
-    Elem *ptr1 = vec->front;
-    Elem *ptr2 = vec->front;
+    elem_t *ptr1 = vec->front;
+    elem_t *ptr2 = vec->front;
     for(size_t i = 0; i < vec->size; ++i){
         ptr1 = ptr2;
         ptr2 = ptr1->next;

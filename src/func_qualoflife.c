@@ -10,8 +10,8 @@
  * 'printf' function        (from <stdio.h>)
  * 'perror' function        (from <stdio.h>)
  * 'LLONG_MAX' value        (from <limits.h>)
- * 'Vec' struct             (from "structs.h")
- * 'Elem' struct            (from "structs.h")
+ * 'vec_t' struct             (from "structs.h")
+ * 'elem_t' struct            (from "structs.h")
  * 'iter_begin' function    (from "devhelper.h")
  *
  * NOTES:
@@ -28,13 +28,13 @@ typedef long long llong;
 
 // prints the vector in a certain range of [beg, end)
 // format: [ 0 , 1 , 2 , 3 ]
-void print_v(Vec *vec, size_t beg, size_t end){
+void print_v(vec_t *vec, size_t beg, size_t end){
     if(beg < 0 || end < 0 || beg >= vec->size || end >= vec->size || beg > end){  // if requested size is negative, out of bounds, or beginning > end
         perror("requested position out of bounds");
         return;
     }
 
-    Elem *iter = iter_begin(vec, beg);
+    elem_t *iter = iter_begin(vec, beg);
 
     printf("[ ");
     for(size_t i = beg; i < end; ++i){
@@ -46,13 +46,13 @@ void print_v(Vec *vec, size_t beg, size_t end){
 }
 
 // gets the sum of the elements of a vector in a certain range, returns -1 if it exceeds limit
-llong sum_v(Vec *vec, size_t beg, size_t end){
+llong sum_v(vec_t *vec, size_t beg, size_t end){
     if(beg < 0 || end < 0 || beg >= vec->size || end >= vec->size || beg > end){  // if requested size is negative, out of bounds, or beginning > end
         perror("requested position out of bounds");
         return 0;
     }
 
-    Elem *iter = iter_begin(vec, beg);
+    elem_t *iter = iter_begin(vec, beg);
     
     llong sum = 0;
     for(size_t i = beg; i < end; ++i){
@@ -64,13 +64,13 @@ llong sum_v(Vec *vec, size_t beg, size_t end){
 }
 
 // gets the product of the elements of a vector in a certain range, returns -1 if it exceeds limit
-llong prod_v(Vec *vec, size_t beg, size_t end){
+llong prod_v(vec_t *vec, size_t beg, size_t end){
     if(beg < 0 || end < 0 || beg >= vec->size || end >= vec->size || beg > end){  // if requested size is negative, out of bounds, or beginning > end
         perror("requested position out of bounds");
         return 0;
     }
 
-    Elem *iter = iter_begin(vec, beg);
+    elem_t *iter = iter_begin(vec, beg);
 
     llong prod = 1;
     for(size_t i = beg; i < end; ++i){

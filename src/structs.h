@@ -17,16 +17,16 @@
 
 #include <stdlib.h>
 
-// each element in a vector will be of type Elem
-typedef struct Elem{
+// each element in a vector will be of type elem_t
+typedef struct elem_t{
     int data;
-    struct Elem *next;
-}Elem;
+    struct elem_t *next;
+}elem_t;
 
-// declaring a vector will create a new variable of type Vec. contains the size and the first element
-typedef struct Vec{
+// declaring a vector will create a new variable of type vec_t. contains the size and the first element
+typedef struct vec_t{
     size_t size;
-    Elem *front;
-}Vec;
+    elem_t *front;
+}vec_t;
 
 #endif
