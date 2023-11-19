@@ -40,7 +40,7 @@ int back_v(vec_t *vec){
 // gets the value at a certain position
 int get_v(vec_t *vec, size_t pos){
     if(pos < 0 || pos >= vec->size){  // if requested size is negative or out of bounds
-        perror("requested position out of bounds");
+        perror("get_v: requested position out of bounds");
         return 0;
     }
 

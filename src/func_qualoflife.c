@@ -30,7 +30,7 @@ typedef long long llong;
 // format: [ 0 , 1 , 2 , 3 ]
 void print_v(vec_t *vec, size_t beg, size_t end){
     if(beg < 0 || end < 0 || beg >= vec->size || end >= vec->size || beg > end){  // if requested size is negative, out of bounds, or beginning > end
-        perror("requested position out of bounds");
+        perror("print_v: requested position out of bounds");
         return;
     }
 
@@ -48,7 +48,7 @@ void print_v(vec_t *vec, size_t beg, size_t end){
 // gets the sum of the elements of a vector in a certain range, returns -1 if it exceeds limit
 llong sum_v(vec_t *vec, size_t beg, size_t end){
     if(beg < 0 || end < 0 || beg >= vec->size || end >= vec->size || beg > end){  // if requested size is negative, out of bounds, or beginning > end
-        perror("requested position out of bounds");
+        perror("sum_v: requested position out of bounds");
         return 0;
     }
 
@@ -66,7 +66,7 @@ llong sum_v(vec_t *vec, size_t beg, size_t end){
 // gets the product of the elements of a vector in a certain range, returns -1 if it exceeds limit
 llong prod_v(vec_t *vec, size_t beg, size_t end){
     if(beg < 0 || end < 0 || beg >= vec->size || end >= vec->size || beg > end){  // if requested size is negative, out of bounds, or beginning > end
-        perror("requested position out of bounds");
+        perror("prod_v: requested position out of bounds");
         return 0;
     }
 

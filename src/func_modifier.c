@@ -47,7 +47,7 @@ void clear_v(vec_t *vec){
 // fills an empty vector with specified size and initializes all values to a specified value
 void assign_v(vec_t *vec, size_t size, int data){
     if(size < 0 || size > SIZE_MAX){  // if size is negative or too large that it overflows the size_t limit
-         perror("requested size out of bounds\n");
+         perror("assign_v: requested size out of bounds\n");
          return;
     }
 
@@ -67,7 +67,7 @@ void assign_v(vec_t *vec, size_t size, int data){
 // resizes the vector and initializes all values to a specified value
 void resize_v(vec_t *vec, size_t size, int data){
     if(size < 0 || size > SIZE_MAX){  // if size is negative or too large that it overflows the size_t limit
-         perror("requested size out of bounds\n");
+         perror("resize_v: requested size out of bounds\n");
          return;
     }
     
@@ -133,7 +133,7 @@ void push_v(vec_t *vec, int data){
 // changes the value of an element at a specified position
 void set_v(vec_t *vec, size_t pos, int data){
     if(pos < 0 || pos >= vec->size){  // if position is negative or larger than the vector size handle the out of bounds error
-        perror("requested size out of bounds\n");
+        perror("set_v: requested size out of bounds\n");
         return;
     }
 
@@ -147,7 +147,7 @@ void set_v(vec_t *vec, size_t pos, int data){
 // inserts an element in a specified position
 elem_t *insert_v(vec_t *vec, size_t pos, int data){
     if(pos < 0 || pos >= vec->size){  // if position is negative or larger than the vector size handle the out of bounds error
-        perror("requested size out of bounds\n");
+        perror("insert_v: requested size out of bounds\n");
         return NULL;
     }
 
@@ -169,7 +169,7 @@ elem_t *insert_v(vec_t *vec, size_t pos, int data){
 // swaps the value of two elements in a specified position
 void swap_v(vec_t *vec, size_t i1, size_t i2){
     if(i1 < 0 || i2 < 0 || i1 >= vec->size || i2 >= vec->size){  // if any requested index is negative or greater than the size, handle the out of bounds error
-        perror("requested size out of bounds\n");
+        perror("swap_v: requested size out of bounds\n");
         return;
     }
 
@@ -202,7 +202,7 @@ void swap_v(vec_t *vec, size_t i1, size_t i2){
 // deletes an elemtent in a specified position
 void erase_v(vec_t *vec, size_t pos){
     if(pos < 0 || pos >= vec->size){  // if position is negative or larger than the vector size handle the out of bounds error
-        perror("requested size out of bounds\n");
+        perror("erase_v: requested size out of bounds\n");
         return;
     }
 
@@ -223,7 +223,7 @@ void erase_v(vec_t *vec, size_t pos){
 // removes the last element; stack pop
 void spop_v(vec_t *vec){
      if(vec->size == 0){
-         perror("cannot remove elements in an empty vector");
+         perror("spop_v: cannot remove elements in an empty vector");
          return;
      }
 
@@ -235,7 +235,7 @@ void spop_v(vec_t *vec){
 // removes the first element; queue pop
 void qpop_v(vec_t *vec){
      if(vec->size == 0){
-         perror("cannot remove elements in an empty vector");
+         perror("qpop_v: cannot remove elements in an empty vector");
          return;
      }
 
