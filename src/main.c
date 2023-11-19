@@ -45,7 +45,6 @@ int main(void){
 
     
     *get_v(vector, 1) = 8;
-    // set_v(vector, 1, 8);  // changes an element in a certain index to a certain value
     printf("updated 1st index after change: %d\n", *get_v(vector,1));
 
     swap_v(vector, 1, 2);  // swaps two elements
