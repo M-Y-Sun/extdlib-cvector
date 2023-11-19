@@ -28,26 +28,28 @@ int main(void){
 
     // print information
     printf("size: %lu\n", size_v(vector));  // size_v() gets the size of the vector
-    printf("0th index: %d\n", get_v(vector, 0));  // get_v gets the value at a certain index
-    printf("1st index: %d\n", get_v(vector, 1));
-    printf("2nd index: %d\n", get_v(vector, 2));
+    printf("0th index: %d\n", *get_v(vector, 0));  // get_v gets the address of the value at a specific position
+    printf("1st index: %d\n", *get_v(vector, 1));
+    printf("2nd index: %d\n", *get_v(vector, 2));
 
     // spop_v(vector);  <- deletes the last value like a stack (first in last out)
     // qpop_v(vector);  <- deletes the first value like a queue (first in first out)
 
     erase_v(vector, 1);  // erases the element at a certain index
-    printf("updated 1st index after erase: %d\n", get_v(vector, 1));
+    printf("updated 1st index after erase: %d\n", *get_v(vector, 1));
 
     insert_v(vector, 1, 4);  // inserts an element at a certain index with a certain value
-    printf("updated 1st index after insertion: %d\n", get_v(vector,1));
+    printf("updated 1st index after insertion: %d\n", *get_v(vector,1));
 
     // vclear(vector);  // deletes all elements
 
-    set_v(vector, 1, 8);  // changes an element in a certain index to a certain value
-    printf("updated 1st index after change: %d\n", get_v(vector,1));
+    
+    *get_v(vector, 1) = 8;
+    // set_v(vector, 1, 8);  // changes an element in a certain index to a certain value
+    printf("updated 1st index after change: %d\n", *get_v(vector,1));
 
     swap_v(vector, 1, 2);  // swaps two elements
-    printf("updated 1st index after swap: %d\n", get_v(vector,1));
+    printf("updated 1st index after swap: %d\n", *get_v(vector,1));
 
     resize_v(vector, 5, -1);  // resizes the vector to a certain size with undefined values set to a certain value
     printf("size after first resize: %lu\n", size_v(vector));

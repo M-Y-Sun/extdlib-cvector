@@ -45,9 +45,6 @@ int front_v(vec_t *vec);
 // returns the last value
 int back_v(vec_t *vec);
 
-// gets the value at a certain position
-int get_v(vec_t *vec, size_t pos);
-
 // checks if the vector is empty (1 = true; 0 = false)
 int empty_v(vec_t *vec);
 
@@ -68,8 +65,8 @@ void resize_v(vec_t *vec, size_t size, int data);
 // adds an element to the end
 void push_v(vec_t *vec, int data);
 
-// changes the value of an element at a specified position
-void set_v(vec_t *vec, size_t pos, int data);
+// returns a pointer to the value at a certain position
+int *get_v(vec_t *vec, size_t pos);
 
 // inserts an element in a specified position
 elem_t *insert_v(vec_t *vec, size_t pos, int data);

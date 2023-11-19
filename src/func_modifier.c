@@ -130,18 +130,19 @@ void push_v(vec_t *vec, int data){
     ++(vec->size);
 }
 
-// changes the value of an element at a specified position
-void set_v(vec_t *vec, size_t pos, int data){
-    if(pos < 0 || pos >= vec->size){  // if position is negative or larger than the vector size handle the out of bounds error
-        perror("set_v: requested size out of bounds\n");
-        return;
-    }
+// returns a pointer to the value at a certain position
+int *get_v(vec_t *vec, size_t pos){
+     if(pos < 0 || pos >= vec->size){
+         perror("get_v: requested size of out bounds\n");
+         return 0;
+     }
 
-    elem_t *iter = vec->front;
-    for(size_t i = 0; i < pos; ++i){
-        iter = iter->next;
-    }
-    iter->data = data;
+     elem_t *iter = vec->front;
+     for(size_t i = 0; i < pos; ++i){
+         iter = iter->next;
+     }
+
+     return &(iter->data);
 }
 
 // inserts an element in a specified position

@@ -37,21 +37,6 @@ int back_v(vec_t *vec){
     return iter->data;
 }
 
-// gets the value at a certain position
-int get_v(vec_t *vec, size_t pos){
-    if(pos < 0 || pos >= vec->size){  // if requested size is negative or out of bounds
-        perror("get_v: requested position out of bounds");
-        return 0;
-    }
-
-    elem_t *iter = vec->front;
-    for(size_t i = 0; i < pos; ++i){
-        iter = iter->next;
-    }
-    int data = iter->data;
-    return data;
-}
-
 // checks if the vector is empty (1 = true; 0 = false)
 int empty_v(vec_t *vec){
     if(vec->front == NULL) return 1;
