@@ -38,4 +38,4 @@ Mkfile.old
 dkms.conf
 
 # macOS system files
-.DS_store
+.DS_store/
