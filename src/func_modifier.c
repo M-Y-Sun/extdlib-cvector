@@ -54,10 +54,19 @@ void assign_v(vec_t *vec, size_t size, int data){
     if(vec->front != NULL || vec->size != 0) return; // if the vector already contains elements, dont do anything
     vec->size = size;
     elem_t *new = (elem_t*)malloc(sizeof(elem_t));
+    if(new == NULL){
+        perror("malloc: memory request service failed\n");
+        return;
+    }
     vec->front = new;
     elem_t *iter = vec->front;
     for(size_t i = 1; i < size; ++i){
         elem_t *new_next = (elem_t*)malloc(sizeof(elem_t));
+        if(new_next == NULL){
+            perror("malloc: memory request service failed\n");
+            return;
+        }
+
         new_next->data = data;
         iter->next = new_next;
         iter = new_next;
@@ -98,6 +107,11 @@ void resize_v(vec_t *vec, size_t size, int data){
         }
         for(size_t i = vec->size; i < size; ++i){
             elem_t *new = (elem_t*)malloc(sizeof(elem_t));
+            if(new == NULL){
+                perror("malloc: memory request service failed\n");
+                return;
+            }
+
             new->data = data;
             iter->next = new;
             iter = new;
@@ -109,6 +123,11 @@ void resize_v(vec_t *vec, size_t size, int data){
 // adds an element to the end
 void push_v(vec_t *vec, int data){
     elem_t *new = (elem_t*)malloc(sizeof(elem_t));
+    if(new == NULL){
+        perror("malloc: memory request service failed\n");
+        return;
+    }
+
     if(vec->front == NULL){ // if empty
         new->data = data;
         vec->front = new;
@@ -160,6 +179,11 @@ elem_t *insert_v(vec_t *vec, size_t pos, int data){
 
     // set the values and link
     elem_t *new = (elem_t*)malloc(sizeof(elem_t));
+    if(new == NULL){
+        perror("malloc: memory request service failed\n");
+        return NULL;
+    }
+
     new->data = data;
     new->next = iter->next;
     iter->next = new;
