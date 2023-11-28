@@ -39,3 +39,9 @@ dkms.conf
 
 # macOS system files
 .DS_store/
+
+# Debug files
+debug/
+
+# Executable binaries
+bin/
