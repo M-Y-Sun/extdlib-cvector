@@ -3,6 +3,10 @@ SOURCE = src/main.c src/func_mand.c src/func_helper.c src/func_readonly.c src/fu
 BINARY = bin/main
 
 all: src/main.c 
+	if [ ! -d bin/ ]; then mkdir bin/; fi
+	if [ ! -d dbg/ ]; then mkdir dbg/; fi
+
 	gcc $(CFLAGS) $(BINARY) $(SOURCE)
-	rm -r debug/main.dSYM
-	mv bin/main.dSYM/ debug
+
+	mv bin/main.dSYM/ dbg/
+

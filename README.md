@@ -16,7 +16,7 @@ git clone https://github.com/s7a19t4r/extdlib_cvector
 ```
 1. Place the header file named ```vector.h``` in a directory (ex. ~/.extdlib/c/vector.h).
 2. Add ```-L[filepath]``` to your compile flags (ex. ```-L~/.extdlib/c/extdlib_cvector/src/```).
-3. Compile as normal (ex. ```gcc -L~/.extdlib/c/extdlib_cvector/src/ main.c -o main```)
+3. Compile as normal (ex. ```gcc -L~/.extdlib/c/extdlib_cvector/src/ main.c -o main```), makefile will create ```bin``` and ```dbg``` directories automatically
 
 See ```GUIDELINES.md``` for correct usage of project
 
