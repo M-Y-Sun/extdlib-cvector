@@ -41,7 +41,7 @@ dkms.conf
 .DS_store/
 
 # Debug files
-debug/
+dbg/
 
 # Executable binaries
 bin/
