@@ -19,8 +19,8 @@
 #define FUNC_READONLY_C
 
 #include <stdio.h>
-#include "vector.h"
-#include "structs.h"
+#include "../vector.h"
+#include "../structs.h"
 
 // returns the length of the vector
 size_t size_v(vec_t *vec){return vec->size;}

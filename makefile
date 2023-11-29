@@ -1,6 +1,6 @@
 CFLAGS = -Wall -Wextra -Wpedantic -g -o
-SOURCE = src/main.c src/func_mand.c src/func_helper.c src/func_readonly.c src/func_modifier.c src/func_qualoflife.c 
-BINARY = bin/main
+SOURCE = src/main.c src/implementation/mand.c src/implementation/helper.c src/implementation/readonly.c src/implementation/modifier.c src/implementation/qualoflife.c 
+BINARY = bin/main.elf
 
 all: src/main.c 
 	if [ ! -d bin/ ]; then mkdir bin/; fi
@@ -8,5 +8,6 @@ all: src/main.c
 
 	gcc $(CFLAGS) $(BINARY) $(SOURCE)
 
-	mv bin/main.dSYM/ dbg/
+	if [ -d dbg/main.elf.dSYM/ ]; then rm -r dbg/main.elf.dSYM/; fi
+	if [ -d bin/main.elf.dSYM/ ]; then mv bin/main.elf.dSYM/ dbg//; fi
 

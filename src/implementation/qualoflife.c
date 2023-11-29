@@ -20,9 +20,9 @@
 
 #include <stdio.h>
 #include <limits.h>
-#include "vector.h"
-#include "devhelper.h"
-#include "structs.h"
+#include "../vector.h"
+#include "../devhelper.h"
+#include "../structs.h"
 
 typedef long long llong;
 

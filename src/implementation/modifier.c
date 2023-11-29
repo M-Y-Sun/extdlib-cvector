@@ -22,8 +22,8 @@
 
 #include <stdio.h>
 #include <limits.h>
-#include "vector.h"
-#include "structs.h"
+#include "../vector.h"
+#include "../structs.h"
 
 // clears everything in the vector
 void clear_v(vec_t *vec){

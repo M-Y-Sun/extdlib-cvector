@@ -17,8 +17,8 @@
  * 'elem_t' struct            (from 'structs.h')
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#include "vector.h"
-#include "structs.h"
+#include "../vector.h"
+#include "../structs.h"
 
 // mandatory functions
 
