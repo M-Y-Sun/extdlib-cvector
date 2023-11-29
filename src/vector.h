@@ -16,8 +16,6 @@
 // vec_t struct and elem_t struct
 #include "structs.h"
 
-typedef long long llong;
-
 // helper function; devonly
 // gets the element iterator to the requested beginning of the operation
 elem_t *iter_begin(vec_t *vec, size_t beg);
@@ -93,9 +91,9 @@ void qpop_v(vec_t *vec);
 void print_v(vec_t *vec, size_t beg, size_t end);
 
 // gets the sum of the elements of a vector in a certain range, returns 0 if it exceeds limit
-llong sum_v(vec_t *vec, size_t beg, size_t end);
+int64_t sum_v(vec_t *vec, size_t beg, size_t end);
 
 // gets the product of the elements of a vector in a certain range, returns 0 if it exceeds limit
-llong prod_v(vec_t *vec, size_t beg, size_t end);
+int64_t prod_v(vec_t *vec, size_t beg, size_t end);
 
 #endif
