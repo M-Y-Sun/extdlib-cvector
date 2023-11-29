@@ -12,7 +12,7 @@ Functions are concisely named to match the naming style of C standard library fu
 2. ```cd``` to the file (ex ```cd ~/.extdlib/c/```)
 3. Clone this repository into the directory:
 ```
-git clone https://github.com/s7a19t4r/extdlib_cvector
+$ git clone https://github.com/s7a19t4r/extdlib_cvector
 ```
 1. Place the header file named ```vector.h``` in a directory (ex. ~/.extdlib/c/vector.h).
 2. Add ```-L[filepath]``` to your compile flags (ex. ```-L~/.extdlib/c/extdlib_cvector/src/```).
@@ -37,10 +37,23 @@ See ```GUIDELINES.md``` for correct usage of project
 
 ### Project Development
 ##### Install ```gcc``` Compiler
-* Debian/Windows (WSL2): ```sudo apt install gcc```
-* Arch: ```sudo pacman -S gcc```
-* Fedora: ```sudo dnf install gcc```
-* macOS (installs clang): ```brew install llvm```
+Debian/Windows (WSL2): 
+```
+$ sudo apt install gcc
+```
+Arch: 
+```
+$ sudo pacman -S gcc
+```
+Fedora: 
+```
+$ sudo dnf install gcc
+```
+macOS (installs clang): 
+```
+$ brew install llvm
+```
 
 ##### Compilation
 Makefile is provided, run ```make``` to compile
+

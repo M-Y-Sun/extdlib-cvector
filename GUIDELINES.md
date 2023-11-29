@@ -3,12 +3,11 @@ Guidelines for Usage and Committing
 
 ## Usage
 * Do not directly access member variables of any struct
-* Do not use the ```llong``` typedef defined in ```vector.h``` to prevent implicit declarations. Declare again explicitly if needed.
 * Always explicitly include ```<stdio.h>```, ```<stdlib.h>```, and ```<limits.h>``` to prevent implicit declarations.
 * Do not use any functions that are not listed in the <i>User Functions</i> section.
 
 ## Committing
-* Do not add features that require the user to directly access member variables of a struct or create an instance of the ```Elem``` type
+* Do not add features that require the user to directly access member variables of a struct or create an instance of the ```elem_t``` type
 * File contents intended only for developer use only should be stated in the block comment prolog.
 * Individual functions intended for developer use only should be marked as as ```devonly``` in a comment above the function <u>only in the header file</u>, following the below example:
 ```c
@@ -17,7 +16,7 @@ Guidelines for Usage and Committing
 void devfunc(vec_t *vec);
 ```
 * Function names should not include underscores other than the ```_v``` prefix
-* Place functions in the correct file based on category: ```mandatory```, ```read only```, ```modifier```, and ```quality of life```.
+* Place functions in the correct file based on category (function implementations are located in the ```implementation``` directory): ```mandatory```, ```read only```, ```modifier```, and ```quality of life```.
 * Separate each category with four new lines in ```vector.h```, separate category title with one new line, and do not leave a new line between function descriptions and function declaration, following the example below:
 ```c
 // category name
