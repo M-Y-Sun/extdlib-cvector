@@ -20,6 +20,13 @@ $ git clone https://github.com/s7a19t4r/extdlib_cvector
 
 See ```GUIDELINES.md``` for correct usage of project
 
+### Contributing
+```cd``` to a directory and clone the repository:
+```
+$ git clone https://github.com/s7a19t4r/extdlib_cvector
+```
+See ```GUIDELINES.md``` for contribution guidelines
+
 ### Important
 * Currently is only able to store integer data
 * Maximum size is ```SIZE_MAX```

@@ -6,7 +6,7 @@ Guidelines for Usage and Committing
 * Always explicitly include ```<stdio.h>```, ```<stdlib.h>```, and ```<limits.h>``` to prevent implicit declarations.
 * Do not use any functions that are not listed in the <i>User Functions</i> section.
 
-## Committing
+## Contributing
 * Do not add features that require the user to directly access member variables of a struct or create an instance of the ```elem_t``` type
 * File contents intended only for developer use only should be stated in the block comment prolog.
 * Individual functions intended for developer use only should be marked as as ```devonly``` in a comment above the function <u>only in the header file</u>, following the below example:
