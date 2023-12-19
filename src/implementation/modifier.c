@@ -21,7 +21,6 @@
 #define FUNC_MODIFIER_C
 
 #include <stdio.h>
-#include <limits.h>
 #include "../vector.h"
 #include "../structs.h"
 
@@ -47,7 +46,7 @@ void clear_v(vec_t *vec){
 // fills an empty vector with specified size and initializes all values to a specified value
 void assign_v(vec_t *vec, size_t size, int data){
     if(size < 0 || size > SIZE_MAX){  // if size is negative or too large that it overflows the size_t limit
-         perror("assign_v: requested size out of bounds\n");
+         perror("[ \033[1;31mFAILED\033[0m ] assign_v: requested size out of bounds\n");
          return;
     }
 
@@ -55,7 +54,7 @@ void assign_v(vec_t *vec, size_t size, int data){
     vec->size = size;
     elem_t *new = (elem_t*)malloc(sizeof(elem_t));
     if(new == NULL){
-        perror("malloc: memory request service failed\n");
+        perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
         return;
     }
     vec->front = new;
@@ -63,7 +62,7 @@ void assign_v(vec_t *vec, size_t size, int data){
     for(size_t i = 1; i < size; ++i){
         elem_t *new_next = (elem_t*)malloc(sizeof(elem_t));
         if(new_next == NULL){
-            perror("malloc: memory request service failed\n");
+            perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
             return;
         }
 
@@ -76,7 +75,7 @@ void assign_v(vec_t *vec, size_t size, int data){
 // resizes the vector and initializes all values to a specified value
 void resize_v(vec_t *vec, size_t size, int data){
     if(size < 0 || size > SIZE_MAX){  // if size is negative or too large that it overflows the size_t limit
-         perror("resize_v: requested size out of bounds\n");
+         perror("[ \033[1;31mFAILED\033[0m ] resize_v: requested size out of bounds\n");
          return;
     }
     
@@ -108,7 +107,7 @@ void resize_v(vec_t *vec, size_t size, int data){
         for(size_t i = vec->size; i < size; ++i){
             elem_t *new = (elem_t*)malloc(sizeof(elem_t));
             if(new == NULL){
-                perror("malloc: memory request service failed\n");
+                perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
                 return;
             }
 
@@ -124,7 +123,7 @@ void resize_v(vec_t *vec, size_t size, int data){
 void push_v(vec_t *vec, int data){
     elem_t *new = (elem_t*)malloc(sizeof(elem_t));
     if(new == NULL){
-        perror("malloc: memory request service failed\n");
+        perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
         return;
     }
 
@@ -152,7 +151,7 @@ void push_v(vec_t *vec, int data){
 // returns a pointer to the value at a certain position
 int *get_v(vec_t *vec, size_t pos){
      if(pos < 0 || pos >= vec->size){
-         perror("get_v: requested size of out bounds\n");
+         perror("[ \033[1;31mFAILED\033[0m ] get_v: requested size of out bounds\n");
          return 0;
      }
 
@@ -167,7 +166,7 @@ int *get_v(vec_t *vec, size_t pos){
 // inserts an element in a specified position
 elem_t *insert_v(vec_t *vec, size_t pos, int data){
     if(pos < 0 || pos >= vec->size){  // if position is negative or larger than the vector size handle the out of bounds error
-        perror("insert_v: requested size out of bounds\n");
+        perror("[ \033[1;31mFAILED\033[0m ] insert_v: requested size out of bounds\n");
         return NULL;
     }
 
@@ -180,7 +179,7 @@ elem_t *insert_v(vec_t *vec, size_t pos, int data){
     // set the values and link
     elem_t *new = (elem_t*)malloc(sizeof(elem_t));
     if(new == NULL){
-        perror("malloc: memory request service failed\n");
+        perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
         return NULL;
     }
 
@@ -194,7 +193,7 @@ elem_t *insert_v(vec_t *vec, size_t pos, int data){
 // swaps the value of two elements in a specified position
 void swap_v(vec_t *vec, size_t i1, size_t i2){
     if(i1 < 0 || i2 < 0 || i1 >= vec->size || i2 >= vec->size){  // if any requested index is negative or greater than the size, handle the out of bounds error
-        perror("swap_v: requested size out of bounds\n");
+        perror("[ \033[1;31mFAILED\033[0m ] swap_v: requested size out of bounds\n");
         return;
     }
 
@@ -227,7 +226,7 @@ void swap_v(vec_t *vec, size_t i1, size_t i2){
 // deletes an elemtent in a specified position
 void erase_v(vec_t *vec, size_t pos){
     if(pos < 0 || pos >= vec->size){  // if position is negative or larger than the vector size handle the out of bounds error
-        perror("erase_v: requested size out of bounds\n");
+        perror("[ \033[1;31mFAILED\033[0m ] erase_v: requested size out of bounds\n");
         return;
     }
 
@@ -248,7 +247,7 @@ void erase_v(vec_t *vec, size_t pos){
 // removes the last element; stack pop
 void spop_v(vec_t *vec){
      if(vec->size == 0){
-         perror("spop_v: cannot remove elements in an empty vector");
+         perror("[ \033[1;31mFAILED\033[0m ] spop_v: cannot remove elements in an empty vector");
          return;
      }
 
@@ -260,7 +259,7 @@ void spop_v(vec_t *vec){
 // removes the first element; queue pop
 void qpop_v(vec_t *vec){
      if(vec->size == 0){
-         perror("qpop_v: cannot remove elements in an empty vector");
+         perror("[ \033[1;31mFAILED\033[0m ] qpop_v: cannot remove elements in an empty vector");
          return;
      }
 

@@ -18,6 +18,7 @@
 int main(void){
     vec_t *vector = (vec_t*)malloc(sizeof(vec_t));
     setup_v(vector);  // set up the vector
+    printf("[   \033[1;32mOK\033[0m   ] setup finished\n");
 
     // vassign(vector, 3);  <- sets the vector to size 3 with values of 0. Only works when vector is empty
 
@@ -67,7 +68,7 @@ int main(void){
     printf("product of elements 1 to 2: %lld\n", prod_v(vector, 1, size_v(vector)));  // computes the product of all the elements in a certain range, returns long long
 
     cleanup_v(vector);  // clean up vector and free memory
-    printf("cleanup finished\n");
+    printf("[   \033[1;32mOK\033[0m   ] cleanup finished\n");
 
     return 0;
 }
