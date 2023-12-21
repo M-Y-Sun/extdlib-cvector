@@ -11,9 +11,9 @@ Functions are concisely named to match the naming style of C standard library fu
 1. Create a directory to store the source files (ex. ```~/.extdlib/c/```)
 2. ```cd``` to the file (ex ```cd ~/.extdlib/c/```)
 3. Clone this repository into the directory:
-```
-$ git clone https://github.com/s7a19t4r/extdlib-cvector
-```
+    ```
+    $ git clone https://github.com/s7a19t4r/extdlib-cvector
+    ```
 1. Place the header file named ```vector.h``` in a directory (ex. ~/.extdlib/c/vector.h).
 2. Add ```-L[filepath]``` to your compile flags (ex. ```-L~/.extdlib/c/extdlib-cvector/src/```).
 3. Compile as normal (ex. ```gcc -L~/.extdlib/c/extdlib-cvector/src/ main.c -o main```), makefile will create ```bin``` and ```dbg``` directories automatically
