@@ -1,6 +1,6 @@
 Extended Library: Vector in C
 =============================
-C++ styled dynamic array (vector) using pointers and structured like a linked list.
+C++ styled dynamic array (vector) using pointers and structured like a linked list, written in C
 
 For simple projects, using a dynamic array to set an array bound is much easier and memory efficient than setting a huge upper bound.
 Setting an upper bound could waste tons of memory and be hard to keep track of.
