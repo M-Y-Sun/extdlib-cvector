@@ -30,7 +30,14 @@ void func(vec_t *vec);
 // next category name
 // ...
 ```
-* Please use the makefile to compile if possible, as the makefile compilation command uses ```clang```
+* Please use makefile to compile; includes support for `gcc` and `clang` with options as follows:
+    ```
+    # using GNU GCC compiler
+    $ make gcc
+
+    # using LLVM Clang
+    $ make clang
+    ```
 
 ## User Functions
 Users of this project are restricted to certain functions in ```vector.h```, listed below:

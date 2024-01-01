@@ -2,9 +2,9 @@ CFLAGS = -Wall -Wextra -Wpedantic -g -o
 SOURCE = src/main.c src/implm/mand.c src/implm/helper.c src/implm/readonly.c src/implm/modifier.c src/implm/qol.c 
 BINARY = bin/main.elf
 
-default: gnu
+default: gcc
 
-gnu: src/main.c 
+gcc: src/main.c 
 	if [ ! -d bin/ ]; then mkdir bin/; fi
 	if [ ! -d dbg/ ]; then mkdir dbg/; fi
 
