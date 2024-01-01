@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "vector.h"
+#include "include/vector.h"
 
 int main(void){
     vec_t *vector = (vec_t*)malloc(sizeof(vec_t));

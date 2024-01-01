@@ -20,9 +20,9 @@
 
 #include <stdio.h>
 #include <limits.h>
-#include "../vector.h"
-#include "../devhelper.h"
-#include "../structs.h"
+#include "../include/vector.h"
+#include "../include/devhelper.h"
+#include "../include/structs.h"
 
 typedef long long int64_t;
 

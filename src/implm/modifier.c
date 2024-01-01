@@ -21,8 +21,8 @@
 #define FUNC_MODIFIER_C
 
 #include <stdio.h>
-#include "../vector.h"
-#include "../structs.h"
+#include "../include/vector.h"
+#include "../include/structs.h"
 
 // clears everything in the vector
 void clear_v(vec_t *vec){

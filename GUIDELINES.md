@@ -9,7 +9,7 @@ Guidelines for Usage and Committing
 ## Contributing
 * Do not add features that require the user to directly access member variables of a struct or create an instance of the ```elem_t``` type
 * File contents intended only for developer use only should be stated in the block comment prolog.
-* Individual functions intended for developer use only should be marked as as ```devonly``` in a comment above the function <u>only in the header file</u>, following the below example:
+* Individual functions intended for developer use only should be marked as ```devonly``` in a comment above the function <u>only in the header file</u>, following the below example:
 ```c
 // devonly
 // function description

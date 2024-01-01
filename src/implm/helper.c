@@ -16,8 +16,8 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <stdio.h>
-#include "../vector.h"
-#include "../structs.h"
+#include "../include/vector.h"
+#include "../include/structs.h"
 
 // gets the element iterator to the requested beginning of the operation
 elem_t *iter_begin(vec_t *vec, size_t beg){
