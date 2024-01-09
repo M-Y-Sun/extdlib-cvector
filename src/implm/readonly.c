@@ -30,7 +30,7 @@ int front_v(vec_t *vec){return vec->front->data;}
 
 // returns the last value
 int back_v(vec_t *vec){
-    elem_t *iter = vec->front;
+    struct elem_t *iter = vec->front;
     for(size_t i = 0; i < vec->size - 1; ++i){
         iter = iter->next;
     }

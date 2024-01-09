@@ -34,7 +34,7 @@ void print_v(vec_t *vec, size_t beg, size_t end){
         return;
     }
 
-    elem_t *iter = iter_begin(vec, beg);
+    struct elem_t *iter = iter_begin(vec, beg);
 
     printf("[ ");
     for(size_t i = beg; i < end; ++i){
@@ -52,7 +52,7 @@ int64_t sum_v(vec_t *vec, size_t beg, size_t end){
         return 0;
     }
 
-    elem_t *iter = iter_begin(vec, beg);
+    struct elem_t *iter = iter_begin(vec, beg);
     
     int64_t sum = 0;
     for(size_t i = beg; i < end; ++i){
@@ -70,7 +70,7 @@ int64_t prod_v(vec_t *vec, size_t beg, size_t end){
         return 0;
     }
 
-    elem_t *iter = iter_begin(vec, beg);
+    struct elem_t *iter = iter_begin(vec, beg);
 
     int64_t prod = 1;
     for(size_t i = beg; i < end; ++i){

@@ -7,7 +7,8 @@
  *
  * EXTERNAL REFERENCES:
  * 'size_t' type            (from <stdlib.h>)
- * 'vec_t' struct             (from 'structs.h')
+ * 'elem_t' struct          (from 'structs.h')
+ * 'vec_t' struct           (from 'structs.h')
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef VECTOR_H
@@ -18,7 +19,7 @@
 
 // helper function; devonly
 // gets the element iterator to the requested beginning of the operation
-elem_t *iter_begin(vec_t *vec, size_t beg);
+struct elem_t *iter_begin(vec_t *vec, size_t beg);
 
 
 // must include
@@ -67,7 +68,7 @@ void push_v(vec_t *vec, int data);
 int *get_v(vec_t *vec, size_t pos);
 
 // inserts an element in a specified position
-elem_t *insert_v(vec_t *vec, size_t pos, int data);
+struct elem_t *insert_v(vec_t *vec, size_t pos, int data);
 
 // swaps the value of two elements in a specified position
 void swap_v(vec_t *vec, size_t i1, size_t i2);

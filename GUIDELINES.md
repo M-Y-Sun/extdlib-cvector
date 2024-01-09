@@ -8,6 +8,7 @@ Guidelines for Usage and Committing
 
 ## Contributing
 * Do not add features that require the user to directly access member variables of a struct or create an instance of the ```elem_t``` type
+* Do not `typedef` any pointers or structs unless they are completely opaque and must be completely abstracted (like `vec_t`)
 * File contents intended only for developer use only should be stated in the block comment prolog.
 * Individual functions intended for developer use only should be marked as ```devonly``` in a comment above the function <u>only in the header file</u>, following the below example:
 ```c

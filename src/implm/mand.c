@@ -34,8 +34,8 @@ void cleanup_v(vec_t *vec){
         free(vec->front);
         return;
     }
-    elem_t *ptr1 = vec->front;
-    elem_t *ptr2 = vec->front;
+    struct elem_t *ptr1 = vec->front;
+    struct elem_t *ptr2 = vec->front;
     for(size_t i = 0; i < vec->size; ++i){
         ptr1 = ptr2;
         ptr2 = ptr1->next;

@@ -15,4 +15,4 @@
  #include "structs.h"
 
 // gets the element iterator to the requested beginning of operation
-elem_t *iter_begin(vec_t *vec, size_t beg);
+struct elem_t *iter_begin(vec_t *vec, size_t beg);

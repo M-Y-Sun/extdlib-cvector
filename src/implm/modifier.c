@@ -31,8 +31,8 @@ void clear_v(vec_t *vec){
         free(vec->front);
         return;
     }
-    elem_t *ptr1 = vec->front;
-    elem_t *ptr2 = vec->front;
+    struct elem_t *ptr1 = vec->front;
+    struct elem_t *ptr2 = vec->front;
     for(size_t i = 0; i < vec->size; ++i){
         ptr1 = ptr2;
         ptr2 = ptr1->next;
@@ -52,15 +52,15 @@ void assign_v(vec_t *vec, size_t size, int data){
 
     if(vec->front != NULL || vec->size != 0) return; // if the vector already contains elements, dont do anything
     vec->size = size;
-    elem_t *new = (elem_t*)malloc(sizeof(elem_t));
+    struct elem_t *new = (struct elem_t*)malloc(sizeof(struct elem_t));
     if(new == NULL){
         perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
         return;
     }
     vec->front = new;
-    elem_t *iter = vec->front;
+    struct elem_t *iter = vec->front;
     for(size_t i = 1; i < size; ++i){
-        elem_t *new_next = (elem_t*)malloc(sizeof(elem_t));
+        struct elem_t *new_next = (struct elem_t*)malloc(sizeof(struct elem_t));
         if(new_next == NULL){
             perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
             return;
@@ -80,7 +80,7 @@ void resize_v(vec_t *vec, size_t size, int data){
     }
     
     if(vec->size == size) return;  // if the requested size = current size, do nothing
-    elem_t *iter = vec->front;
+    struct elem_t *iter = vec->front;
     if(size < vec->size){  // if the vector wants to be shrunk, delete the elements overflowing the size
         for(size_t i = 0; i < size - 1; ++i){
             iter = iter->next;
@@ -90,8 +90,8 @@ void resize_v(vec_t *vec, size_t size, int data){
         if(vec->size - size == 1) free(iter);  // if there is only 1 element to delete
         else{
             iter = iter->next;  // pointing to the first element out of bounds
-            elem_t *ptr1 = iter;
-            elem_t *ptr2 = iter;
+            struct elem_t *ptr1 = iter;
+            struct elem_t *ptr2 = iter;
             for(size_t i = 0; i < vec->size - size; ++i){
                 ptr1 = ptr2;
                 ptr2 = ptr1->next;
@@ -105,7 +105,7 @@ void resize_v(vec_t *vec, size_t size, int data){
             iter = iter->next;
         }
         for(size_t i = vec->size; i < size; ++i){
-            elem_t *new = (elem_t*)malloc(sizeof(elem_t));
+            struct elem_t *new = (struct elem_t*)malloc(sizeof(struct elem_t));
             if(new == NULL){
                 perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
                 return;
@@ -121,7 +121,7 @@ void resize_v(vec_t *vec, size_t size, int data){
 
 // adds an element to the end
 void push_v(vec_t *vec, int data){
-    elem_t *new = (elem_t*)malloc(sizeof(elem_t));
+    struct elem_t *new = (struct elem_t*)malloc(sizeof(struct elem_t));
     if(new == NULL){
         perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
         return;
@@ -133,8 +133,8 @@ void push_v(vec_t *vec, int data){
         new->next = NULL;
     }else{ // if not empty
         // find the position
-        elem_t *cur = vec->front;
-        elem_t *prev = vec->front;
+        struct elem_t *cur = vec->front;
+        struct elem_t *prev = vec->front;
         for(size_t i = 0; i < vec->size; ++i){
             prev = cur;
             cur = cur->next;
@@ -155,7 +155,7 @@ int *get_v(vec_t *vec, size_t pos){
          return 0;
      }
 
-     elem_t *iter = vec->front;
+     struct elem_t *iter = vec->front;
      for(size_t i = 0; i < pos; ++i){
          iter = iter->next;
      }
@@ -164,20 +164,20 @@ int *get_v(vec_t *vec, size_t pos){
 }
 
 // inserts an element in a specified position
-elem_t *insert_v(vec_t *vec, size_t pos, int data){
+struct elem_t *insert_v(vec_t *vec, size_t pos, int data){
     if(pos < 0 || pos >= vec->size){  // if position is negative or larger than the vector size handle the out of bounds error
         perror("[ \033[1;31mFAILED\033[0m ] insert_v: requested size out of bounds\n");
         return NULL;
     }
 
     // get to insertion position
-    elem_t *iter = vec->front;
+    struct elem_t *iter = vec->front;
     for(size_t i = 0; i < pos-1; ++i){
         iter = iter->next;
     }
 
     // set the values and link
-    elem_t *new = (elem_t*)malloc(sizeof(elem_t));
+    struct elem_t *new = (struct elem_t*)malloc(sizeof(struct elem_t));
     if(new == NULL){
         perror("[ \033[1;31mFAILED\033[0m ] malloc: memory request service failed\n");
         return NULL;
@@ -205,7 +205,7 @@ void swap_v(vec_t *vec, size_t i1, size_t i2){
     }
 
     // read the data
-    elem_t *iter = iter_begin(vec, i1);  // get to the first index and read value
+    struct elem_t *iter = iter_begin(vec, i1);  // get to the first index and read value
 
     int data1 = iter->data;
     for(size_t i = i1; i < i2; ++i){
@@ -230,8 +230,8 @@ void erase_v(vec_t *vec, size_t pos){
         return;
     }
 
-    elem_t *cur = vec->front;
-    elem_t *prev = vec->front;
+    struct elem_t *cur = vec->front;
+    struct elem_t *prev = vec->front;
     for(size_t i = 0; i < pos; ++i){
         prev = cur;
         cur = cur->next;
@@ -251,7 +251,7 @@ void spop_v(vec_t *vec){
          return;
      }
 
-    elem_t *rm = iter_begin(vec, vec->size - 1);  // get iterator to the last element
+    struct elem_t *rm = iter_begin(vec, vec->size - 1);  // get iterator to the last element
     free(rm);
     --(vec->size);
 }
@@ -263,7 +263,7 @@ void qpop_v(vec_t *vec){
          return;
      }
 
-    elem_t *rm = vec->front;
+    struct elem_t *rm = vec->front;
     vec->front = vec->front->next;  // set the front equal to the next element
     free(rm);
     --(vec->size);
