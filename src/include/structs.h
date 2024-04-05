@@ -1,8 +1,8 @@
- /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * FILE NAME:
- * structs.h                                                   
- *                                                                 
- * PURPOSE: 
+ * structs.h
+ *
+ * PURPOSE:
  * Includes the structs used for the vector
  *
  * EXTERNAL REFERENCES:
@@ -18,15 +18,16 @@
 #include <stdlib.h>
 
 // each element in a vector will be of type elem_t
-struct elem_t{
+struct elem_t {
     int data;
     struct elem_t *next;
 };
 
-// declaring a vector will create a new variable of type vec_t. contains the size and the first element
-typedef struct{
+// declaring a vector will create a new variable of type vec_t. contains the
+// size and the first element
+typedef struct {
     size_t size;
     struct elem_t *front;
-}vec_t;
+} vec_t;
 
 #endif
