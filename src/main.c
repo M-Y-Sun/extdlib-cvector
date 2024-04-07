@@ -16,7 +16,8 @@
 #include <stdlib.h>
 
 int
-main (void) {
+main (void)
+{
     vec_t *vector = (vec_t *)malloc (sizeof (vec_t));
     setup_v (vector); // set up the vector
     printf ("[   \033[1;32mOK\033[0m   ] setup finished\n");

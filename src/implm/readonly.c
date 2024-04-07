@@ -24,29 +24,34 @@
 
 // returns the length of the vector
 size_t
-size_v (vec_t *vec) {
+size_v (vec_t *vec)
+{
     return vec->size;
 }
 
 // returns the first value
 int
-front_v (vec_t *vec) {
+front_v (vec_t *vec)
+{
     return vec->front->data;
 }
 
 // returns the last value
 int
-back_v (vec_t *vec) {
+back_v (vec_t *vec)
+{
     struct elem_t *iter = vec->front;
-    for (size_t i = 0; i < vec->size - 1; ++i) {
-        iter = iter->next;
-    }
+    for (size_t i = 0; i < vec->size - 1; ++i)
+        {
+            iter = iter->next;
+        }
     return iter->data;
 }
 
 // checks if the vector is empty (1 = true; 0 = false)
 int
-empty_v (vec_t *vec) {
+empty_v (vec_t *vec)
+{
     if (vec->front == NULL)
         return 1;
     return 0;
