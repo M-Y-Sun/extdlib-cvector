@@ -99,7 +99,7 @@ resize_v (vec_t *vec, size_t size, int data)
         return; // if the requested size = current size, do nothing
     struct elem_t *iter = vec->front;
     if (size < vec->size) { // if the vector wants to be shrunk, delete the
-                            // elements overflowing the size
+        // elements overflowing the size
         for (size_t i = 0; i < size - 1; ++i) {
             iter = iter->next;
         }
@@ -123,7 +123,7 @@ resize_v (vec_t *vec, size_t size, int data)
         }
         vec->size = size;
     } else { // if the vector wants to be enlarged, add initialized elements to
-             // the end
+        // the end
         for (size_t i = 0; i < vec->size - 1; ++i) {
             iter = iter->next;
         }
@@ -136,46 +136,6 @@ resize_v (vec_t *vec, size_t size, int data)
                         "service failed\n");
                 return;
             }
-=======
-if (size < vec->size) { // if the vector wants to be shrunk, delete the
-    // elements overflowing the size
-    for (size_t i = 0; i < size - 1; ++i) {
-        iter = iter->next;
-    }
-    // iter is pointing to the last element
-    // delete and free the elements including and after iter using the
-    // faster cleanup algorithm
-    if (vec->size - size == 1)
-        free (iter); // if there is only 1 element to delete
-    else {
-        iter = iter->next; // pointing to the first element out of
-                           // bounds
-        struct elem_t *ptr1 = iter;
-        struct elem_t *ptr2 = iter;
-        for (size_t i = 0; i < vec->size - size; ++i) {
-            ptr1 = ptr2;
-            ptr2 = ptr1->next;
-            free (ptr1);
-        }
-        if (ptr2 == NULL)
-            free (ptr2);
-    }
-    vec->size = size;
-} else { // if the vector wants to be enlarged, add initialized elements to
-    // the end
-    for (size_t i = 0; i < vec->size - 1; ++i) {
-        iter = iter->next;
-    }
-    for (size_t i = vec->size; i < size; ++i) {
-        struct elem_t *new = (struct elem_t *)malloc (sizeof (struct elem_t));
-        if (new == NULL) {
-            perror ("[ \033[1;31mFAILED\033[0m ] malloc: "
-                    "memory request "
-                    "service failed\n");
-            return;
-        }
->>>>>>> 2d2ae8e (added line breaks before opening braces (updated .clang-format accordingly, set BreakBeforeBraces to Linux) to support regex search for the beginning of functions (which have braces in column 1) using '^{')
-
             new->data = data;
             iter->next = new;
             iter = new;
@@ -220,19 +180,11 @@ push_v (vec_t *vec, int data)
 int *
 get_v (vec_t *vec, size_t pos)
 {
-<<<<<<< HEAD
     if (pos < 0 || pos >= vec->size) {
         perror ("[ \033[1;31mFAILED\033[0m ] get_v: requested size of out "
                 "bounds\n");
         return 0;
     }
-=======
-    if (pos < 0 || pos >= vec->size) {
-        perror ("[ \033[1;31mFAILED\033[0m ] get_v: requested size of out "
-                "bounds\n");
-        return 0;
-    }
->>>>>>> 2d2ae8e (added line breaks before opening braces (updated .clang-format accordingly, set BreakBeforeBraces to Linux) to support regex search for the beginning of functions (which have braces in column 1) using '^{')
 
     struct elem_t *iter = vec->front;
     for (size_t i = 0; i < pos; ++i) {
@@ -246,17 +198,10 @@ get_v (vec_t *vec, size_t pos)
 struct elem_t *
 insert_v (vec_t *vec, size_t pos, int data)
 {
-<<<<<<< HEAD
-    if (pos < 0
-        || pos >= vec->size) { // if position is negative or larger than the
-                               // vector size handle the out of bounds error
-        perror ("[ \033[1;31mFAILED\033[0m ] insert_v: requested size out of "
-=======
     if (pos < 0
         || pos >= vec->size) { // if position is negative or larger than the
         // vector size handle the out of bounds error
         perror ("[ \033[1;31mFAILED\033[0m ] insert_v: requested size out of "
->>>>>>> 2d2ae8e (added line breaks before opening braces (updated .clang-format accordingly, set BreakBeforeBraces to Linux) to support regex search for the beginning of functions (which have braces in column 1) using '^{')
                 "bounds\n");
         return NULL;
     }
@@ -286,17 +231,10 @@ insert_v (vec_t *vec, size_t pos, int data)
 void
 swap_v (vec_t *vec, size_t i1, size_t i2)
 {
-<<<<<<< HEAD
-    if (i1 < 0 || i2 < 0 || i1 >= vec->size
-        || i2 >= vec->size) { // if any requested index is negative or greater
-                              // than the size, handle the out of bounds error
-        perror ("[ \033[1;31mFAILED\033[0m ] swap_v: requested size out of "
-=======
     if (i1 < 0 || i2 < 0 || i1 >= vec->size
         || i2 >= vec->size) { // if any requested index is negative or greater
         // than the size, handle the out of bounds error
         perror ("[ \033[1;31mFAILED\033[0m ] swap_v: requested size out of "
->>>>>>> 2d2ae8e (added line breaks before opening braces (updated .clang-format accordingly, set BreakBeforeBraces to Linux) to support regex search for the beginning of functions (which have braces in column 1) using '^{')
                 "bounds\n");
         return;
     }
@@ -333,17 +271,10 @@ swap_v (vec_t *vec, size_t i1, size_t i2)
 void
 erase_v (vec_t *vec, size_t pos)
 {
-<<<<<<< HEAD
-    if (pos < 0
-        || pos >= vec->size) { // if position is negative or larger than the
-                               // vector size handle the out of bounds error
-        perror ("[ \033[1;31mFAILED\033[0m ] erase_v: requested size out of "
-=======
     if (pos < 0
         || pos >= vec->size) { // if position is negative or larger than the
         // vector size handle the out of bounds error
         perror ("[ \033[1;31mFAILED\033[0m ] erase_v: requested size out of "
->>>>>>> 2d2ae8e (added line breaks before opening braces (updated .clang-format accordingly, set BreakBeforeBraces to Linux) to support regex search for the beginning of functions (which have braces in column 1) using '^{')
                 "bounds\n");
         return;
     }
@@ -366,13 +297,8 @@ erase_v (vec_t *vec, size_t pos)
 void
 spop_v (vec_t *vec)
 {
-<<<<<<< HEAD
     if (vec->size == 0) {
         perror ("[ \033[1;31mFAILED\033[0m ] spop_v: cannot remove elements "
-=======
-    if (vec->size == 0) {
-        perror ("[ \033[1;31mFAILED\033[0m ] spop_v: cannot remove elements "
->>>>>>> 2d2ae8e (added line breaks before opening braces (updated .clang-format accordingly, set BreakBeforeBraces to Linux) to support regex search for the beginning of functions (which have braces in column 1) using '^{')
                 "in an empty vector");
         return;
     }
@@ -387,13 +313,8 @@ spop_v (vec_t *vec)
 void
 qpop_v (vec_t *vec)
 {
-<<<<<<< HEAD
     if (vec->size == 0) {
         perror ("[ \033[1;31mFAILED\033[0m ] qpop_v: cannot remove elements "
-=======
-    if (vec->size == 0) {
-        perror ("[ \033[1;31mFAILED\033[0m ] qpop_v: cannot remove elements "
->>>>>>> 2d2ae8e (added line breaks before opening braces (updated .clang-format accordingly, set BreakBeforeBraces to Linux) to support regex search for the beginning of functions (which have braces in column 1) using '^{')
                 "in an empty vector");
         return;
     }
