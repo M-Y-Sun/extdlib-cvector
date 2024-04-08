@@ -285,6 +285,7 @@ erase_v (vec_t *vec, size_t pos)
         prev = cur;
         cur = cur->next;
     }
+
     if (cur == vec->front) { // if the element to erase is the first element
         vec->front = cur->next;
     } else { // if it is not the first element
