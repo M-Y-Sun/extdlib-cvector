@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * FILE NAME:                                                                *
- * func_helper.c                                                             *
+ * helper.c                                                                  *
  *                                                                           *
  * PURPOSE:                                                                  *
  * includes helper functions for developer convenience.                      *

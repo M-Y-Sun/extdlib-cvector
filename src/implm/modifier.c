@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * FILE NAME:                                                                *
- * func_modifier.c                                                           *
+ * modifier.c                                                                *
  *                                                                           *
  * PURPOSE:                                                                  *
  * Includes functions that modify the vector.                                *
@@ -17,8 +17,8 @@
  * Modifications may include change in size or specific elements.            *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef FUNC_MODIFIER_C
-#define FUNC_MODIFIER_C
+#ifndef MODIFIER_C
+#define MODIFIER_C
 
 #include "../include/structs.h"
 #include "../include/vector.h"

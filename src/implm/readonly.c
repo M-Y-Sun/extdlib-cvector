@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * FILE NAME:                                                                *
- * func_readonly.c                                                           *
+ * readonly.c                                                                *
  *                                                                           *
  * PURPOSE:                                                                  *
  * Includes functions that obtain data from the vector.                      *
@@ -15,8 +15,8 @@
  * vec_ttor will be unchanged after funcion call.                            *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef FUNC_READONLY_C
-#define FUNC_READONLY_C
+#ifndef READONLY_C
+#define READONLY_C
 
 #include "../include/structs.h"
 #include "../include/vector.h"
