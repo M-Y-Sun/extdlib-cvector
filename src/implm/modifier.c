@@ -1,21 +1,21 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * FILE NAME:
- * func_modifier.c
- *
- * PURPOSE:
- * Includes functions that modify the vector.
- *
- * EXTERNAL REFERENCES:
- * 'size_t' type        (from <stdlib.h>)
- * 'free' function      (from <stdlib.h>)
- * 'malloc' function    (from <stdlib.h>)
- * 'perror' function    (from <stdio.h>)
- * 'vec_t' struct         (from "structs.h")
- * 'elem_t' struct        (from "structs.h")
- *
- * NOTES:
- * Modifications may include change in size or specific elements.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:                                                                *
+ * func_modifier.c                                                           *
+ *                                                                           *
+ * PURPOSE:                                                                  *
+ * Includes functions that modify the vector.                                *
+ *                                                                           *
+ * EXTERNAL REFERENCES:                                                      *
+ * 'size_t' type        (from <stdlib.h>)                                    *
+ * 'free' function      (from <stdlib.h>)                                    *
+ * 'malloc' function    (from <stdlib.h>)                                    *
+ * 'perror' function    (from <stdio.h>)                                     *
+ * 'vec_t' struct         (from "structs.h")                                 *
+ * 'elem_t' struct        (from "structs.h")                                 *
+ *                                                                           *
+ * NOTES:                                                                    *
+ * Modifications may include change in size or specific elements.            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef FUNC_MODIFIER_C
 #define FUNC_MODIFIER_C
@@ -51,15 +51,16 @@ clear_v (vec_t *vec)
 void
 assign_v (vec_t *vec, size_t size, int data)
 {
-    if (size < 0 || size > SIZE_MAX) { // if size is negative or too large that
-        // it overflows the size_t limit
+    // if size is negative or too large that it overflows the size limit
+    if (size < 0 || size > SIZE_MAX) {
         perror ("[ \033[1;31mFAILED\033[0m ] assign_v: requested size out of "
                 "bounds\n");
         return;
     }
 
     if (vec->front != NULL || vec->size != 0)
-        return; // if the vector already contains elements, dont do anything
+        // if the vector already contains elements, dont do anything
+        return;
     vec->size = size;
     struct elem_t *new = (struct elem_t *)malloc (sizeof (struct elem_t));
     if (new == NULL) {
@@ -88,21 +89,26 @@ assign_v (vec_t *vec, size_t size, int data)
 void
 resize_v (vec_t *vec, size_t size, int data)
 {
-    if (size < 0 || size > SIZE_MAX) { // if size is negative or too large that
-        // it overflows the size_t limit
+    // if size is negative or too large that it overflows the size_t limit
+    if (size < 0 || size > SIZE_MAX) {
         perror ("[ \033[1;31mFAILED\033[0m ] resize_v: requested size out of "
                 "bounds\n");
         return;
     }
 
-    if (vec->size == size)
-        return; // if the requested size = current size, do nothing
+    if (vec->size == size) {
+        // if the requested size = current size, do nothing
+        return;
+    }
+
     struct elem_t *iter = vec->front;
-    if (size < vec->size) { // if the vector wants to be shrunk, delete the
-        // elements overflowing the size
+    // if the vector wants to be shrunk,
+    // delete the elements overflowing the size
+    if (size < vec->size) {
         for (size_t i = 0; i < size - 1; ++i) {
             iter = iter->next;
         }
+
         // iter is pointing to the last element
         // delete and free the elements including and after iter using the
         // faster cleanup algorithm
@@ -118,12 +124,15 @@ resize_v (vec_t *vec, size_t size, int data)
                 ptr2 = ptr1->next;
                 free (ptr1);
             }
-            if (ptr2 == NULL)
+
+            if (ptr2 == NULL) {
                 free (ptr2);
+            }
         }
         vec->size = size;
-    } else { // if the vector wants to be enlarged, add initialized elements to
-        // the end
+        // if the vector wants to be enlarged,
+        // add initialized elements to the add
+    } else {
         for (size_t i = 0; i < vec->size - 1; ++i) {
             iter = iter->next;
         }
@@ -254,6 +263,7 @@ swap_v (vec_t *vec, size_t i1, size_t i2)
     for (size_t i = i1; i < i2; ++i) {
         iter = iter->next;
     }
+
     int data2 = iter->data;
 
     // set the data
@@ -264,6 +274,7 @@ swap_v (vec_t *vec, size_t i1, size_t i2)
     for (size_t i = i1; i < i2; ++i) {
         iter = iter->next;
     }
+
     iter->data = data1;
 }
 
@@ -271,27 +282,24 @@ swap_v (vec_t *vec, size_t i1, size_t i2)
 void
 erase_v (vec_t *vec, size_t pos)
 {
-    if (pos < 0
-        || pos >= vec->size) { // if position is negative or larger than the
-        // vector size handle the out of bounds error
+    // if position is negative or larger than the vector size,
+    // handle the out of bounds
+    if (pos < 0 || pos >= vec->size) {
         perror ("[ \033[1;31mFAILED\033[0m ] erase_v: requested size out of "
                 "bounds\n");
         return;
     }
 
-    struct elem_t *cur = vec->front;
-    struct elem_t *prev = vec->front;
+    // indirect pointer points to the address of the element to be removed
+    struct elem_t **indirect = &vec->front;
     for (size_t i = 0; i < pos; ++i) {
-        prev = cur;
-        cur = cur->next;
+        indirect = &(*indirect)->next;
     }
 
-    if (cur == vec->front) { // if the element to erase is the first element
-        vec->front = cur->next;
-    } else { // if it is not the first element
-        prev->next = cur->next;
-        free (cur);
-    }
+    // simply remove the element and free memory
+    struct elem_t *free_ptr = *indirect;
+    *indirect = (*indirect)->next;
+    free (free_ptr);
 }
 
 // removes the last element; stack pop

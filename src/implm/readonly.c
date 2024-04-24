@@ -1,19 +1,19 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * FILE NAME:
- * func_readonly.c
- *
- * PURPOSE:
- * Includes functions that obtain data from the vector.
- *
- * EXTERNAL REFERENCES:
- * 'size_t' type            (from <stdlib.h>)
- * 'perror' function        (from <stdio.h>)
- * 'vec_t' struct             (from "structs.h")
- * 'elem_t' struct            (from "structs.h")
- *
- * NOTES:
- * vec_ttor will be unchanged after funcion call.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:                                                                *
+ * func_readonly.c                                                           *
+ *                                                                           *
+ * PURPOSE:                                                                  *
+ * Includes functions that obtain data from the vector.                      *
+ *                                                                           *
+ * EXTERNAL REFERENCES:                                                      *
+ * 'size_t' type            (from <stdlib.h>)                                *
+ * 'perror' function        (from <stdio.h>)                                 *
+ * 'vec_t' struct             (from "structs.h")                             *
+ * 'elem_t' struct            (from "structs.h")                             *
+ *                                                                           *
+ * NOTES:                                                                    *
+ * vec_ttor will be unchanged after funcion call.                            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef FUNC_READONLY_C
 #define FUNC_READONLY_C
@@ -41,10 +41,9 @@ int
 back_v (vec_t *vec)
 {
     struct elem_t *iter = vec->front;
-    for (size_t i = 0; i < vec->size - 1; ++i)
-        {
-            iter = iter->next;
-        }
+    for (size_t i = 0; i < vec->size - 1; ++i) {
+        iter = iter->next;
+    }
     return iter->data;
 }
 

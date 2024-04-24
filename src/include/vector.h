@@ -1,15 +1,15 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * FILE NAME:
- * vector.h
- *
- * PURPOSE:
- * Includes function declarations/prototypes for all functions
- *
- * EXTERNAL REFERENCES:
- * 'size_t' type            (from <stdlib.h>)
- * 'elem_t' struct          (from 'structs.h')
- * 'vec_t' struct           (from 'structs.h')
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:                                                                *
+ * vector.h                                                                  *
+ *                                                                           *
+ * PURPOSE:                                                                  *
+ * Includes function declarations/prototypes for all functions               *
+ *                                                                           *
+ * EXTERNAL REFERENCES:                                                      *
+ * 'size_t' type            (from <stdlib.h>)                                *
+ * 'elem_t' struct          (from 'structs.h')                               *
+ * 'vec_t' struct           (from 'structs.h')                               *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #ifndef VECTOR_H
 #define VECTOR_H

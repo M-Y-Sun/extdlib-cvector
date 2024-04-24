@@ -1,30 +1,28 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * FILE NAME:
- * func_qualoflife.c
- *
- * PURPOSE:
- * Includes functions that improve the user experience.
- *
- * EXTERNAL REFERENCES:
- * 'size_t' type            (from <stdlib.h>)
- * 'printf' function        (from <stdio.h>)
- * 'perror' function        (from <stdio.h>)
- * 'LLONG_MAX' value        (from <limits.h>)
- * 'vec_t' struct             (from "structs.h")
- * 'elem_t' struct            (from "structs.h")
- * 'iter_begin' function    (from "devhelper.h")
- *
- * NOTES:
- * Such functions do not exist for C++ vectors.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:                                                                *
+ * qol.c                                                                     *
+ *                                                                           *
+ * PURPOSE:                                                                  *
+ * Includes functions that improve the user experience.                      *
+ *                                                                           *
+ * EXTERNAL REFERENCES:                                                      *
+ * 'size_t' type            (from <stdlib.h>)                                *
+ * 'printf' function        (from <stdio.h>)                                 *
+ * 'perror' function        (from <stdio.h>)                                 *
+ * 'LLONG_MAX' value        (from <limits.h>)                                *
+ * 'vec_t' struct             (from "structs.h")                             *
+ * 'elem_t' struct            (from "structs.h")                             *
+ * 'iter_begin' function    (from "devhelper.h")                             *
+ *                                                                           *
+ * NOTES:                                                                    *
+ * Such functions do not exist for C++ vectors.                              *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "../include/devhelper.h"
 #include "../include/structs.h"
 #include "../include/vector.h"
 #include <limits.h>
 #include <stdio.h>
-
-typedef long long int64_t;
 
 // prints the vector in a certain range of [beg, end)
 // format: [ 0 , 1 , 2 , 3 ]

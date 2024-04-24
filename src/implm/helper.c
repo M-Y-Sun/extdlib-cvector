@@ -1,19 +1,19 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * FILE NAME:
- * func_helper.c
- *
- * PURPOSE:
- * includes helper functions for developer convenience.
- *
- * EXTERNAL REFERENCES:
- * 'size_t' type        (from <stdlib.h>)
- * 'perror' function    (from <stdio.h>)
- * 'vec_t' struct         (from "structs.h")
- * 'elem_t' struct        (from "structs.h")
- *
- * NOTES:
- * Functions in this file should only be used by the developer.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:                                                                *
+ * func_helper.c                                                             *
+ *                                                                           *
+ * PURPOSE:                                                                  *
+ * includes helper functions for developer convenience.                      *
+ *                                                                           *
+ * EXTERNAL REFERENCES:                                                      *
+ * 'size_t' type        (from <stdlib.h>)                                    *
+ * 'perror' function    (from <stdio.h>)                                     *
+ * 'vec_t' struct         (from "structs.h")                                 *
+ * 'elem_t' struct        (from "structs.h")                                 *
+ *                                                                           *
+ * NOTES:                                                                    *
+ * Functions in this file should only be used by the developer.              *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "../include/structs.h"
 #include "../include/vector.h"

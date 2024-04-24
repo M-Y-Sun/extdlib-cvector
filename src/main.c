@@ -1,15 +1,15 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * FILE NAME:
- * main.c
- *
- * PURPOSE:
- * Demonstration for all available functions.
- *
- * EXTERNAL REFERENCES:
- * all functions declared in "vector.h"
- * 'printf' function        (from <stdio.h>)
- * 'malloc' function        (from <stdlib.h>)
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:                                                                *
+ * main.c                                                                    *
+ *                                                                           *
+ * PURPOSE:                                                                  *
+ * Demonstration for all available functions.                                *
+ *                                                                           *
+ * EXTERNAL REFERENCES:                                                      *
+ * all functions declared in "vector.h"                                      *
+ * 'printf' function        (from <stdio.h>)                                 *
+ * 'malloc' function        (from <stdlib.h>)                                *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "include/vector.h"
 #include <stdio.h>

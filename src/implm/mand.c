@@ -1,21 +1,16 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * mand.c                                                          *
- *                                                                 *
- * Includes mandatory functions that must be run                   *
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * FILE NAME:
- * mand.c
- *
- * PURPOSE:
- * Includes mandatory functions that must be run
- *
- * EXTERNAL REFERENCES:
- * 'size_t' type            (from <stdlib.h>)
- * 'free' function          (from <stdlib.h>)
- * 'vec_t' struct             (from 'structs.h')
- * 'elem_t' struct            (from 'structs.h')
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:                                                                *
+ * mand.c                                                                    *
+ *                                                                           *
+ * PURPOSE:                                                                  *
+ * Includes mandatory functions that must be run                             *
+ *                                                                           *
+ * EXTERNAL REFERENCES:                                                      *
+ * 'size_t' type              (from <stdlib.h>)                              *
+ * 'free' function            (from <stdlib.h>)                              *
+ * 'vec_t' struct             (from 'structs.h')                             *
+ * 'elem_t' struct            (from 'structs.h')                             *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "../include/structs.h"
 #include "../include/vector.h"
@@ -34,8 +29,8 @@ setup_v (vec_t *vec)
 void
 cleanup_v (vec_t *vec)
 {
-    if (vec->size < 2) { // if it is empty (contains only a NULL element) or
-                         // has only 1 element
+    // if it is empty (contains only a NULL element) or has only 1 element
+    if (vec->size < 2) {
         free (vec->front);
         return;
     }

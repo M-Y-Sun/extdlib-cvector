@@ -1,15 +1,15 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * FILE NAME:
- * devhelper.helper
- *
- * PURPOSE:
- * Declares helper functions defined by 'func_helper.c'
- *
- * EXTERNAL REFERENCES:
- * 'size_t' type    (from <stdlib.h>)
- * 'vec_t' struct     (from "structs.h")
- * 'elem_t' struct    (from "structs.h")
- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * FILE NAME:                                                                *
+ * devhelper.h                                                               *
+ *                                                                           *
+ * PURPOSE:                                                                  *
+ * Declares helper functions defined by 'helper.c'                           *
+ *                                                                           *
+ * EXTERNAL REFERENCES:                                                      *
+ * 'size_t' type    (from <stdlib.h>)                                        *
+ * 'vec_t' struct     (from "structs.h")                                     *
+ * 'elem_t' struct    (from "structs.h")                                     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include "structs.h"
 #include <stdlib.h>
