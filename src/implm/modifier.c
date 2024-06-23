@@ -156,7 +156,7 @@ resize_v (vec_t *vec, size_t size, int data)
 
 // adds an element to the end
 void
-push_v (vec_t *vec, int data)
+pushb_v (vec_t *vec, int data)
 {
     struct elem_t *new = (struct elem_t *)malloc (sizeof (struct elem_t));
     if (new == NULL) {
@@ -303,12 +303,12 @@ erase_v (vec_t *vec, size_t pos)
     free (free_ptr);
 }
 
-// removes the last element; stack pop
+// removes the last element
 void
-spop_v (vec_t *vec)
+popb_v (vec_t *vec)
 {
     if (vec->size == 0) {
-        perror ("[ \033[1;31mFAILED\033[0m ] spop_v: cannot remove elements "
+        perror ("[ \033[1;31mFAILED\033[0m ] popb_v: cannot remove elements "
                 "in an empty vector");
         return;
     }
@@ -319,12 +319,12 @@ spop_v (vec_t *vec)
     --(vec->size);
 }
 
-// removes the first element; queue pop
+// removes the first element
 void
-qpop_v (vec_t *vec)
+popf_v (vec_t *vec)
 {
     if (vec->size == 0) {
-        perror ("[ \033[1;31mFAILED\033[0m ] qpop_v: cannot remove elements "
+        perror ("[ \033[1;31mFAILED\033[0m ] popf_v: cannot remove elements "
                 "in an empty vector");
         return;
     }

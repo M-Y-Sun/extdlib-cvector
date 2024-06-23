@@ -56,7 +56,7 @@ void assign_v (vec_t *vec, size_t size, int data);
 void resize_v (vec_t *vec, size_t size, int data);
 
 // adds an element to the end
-void push_v (vec_t *vec, int data);
+void pushb_v (vec_t *vec, int data);
 
 // returns a pointer to the value at a certain position
 int *get_v (vec_t *vec, size_t pos);
@@ -70,11 +70,11 @@ void swap_v (vec_t *vec, size_t i1, size_t i2);
 // deletes an elemtent in a specified position
 void erase_v (vec_t *vec, size_t pos);
 
-// removes the last element; stack pop
-void spop_v (vec_t *vec);
+// removes the last element
+void popb_v (vec_t *vec);
 
-// removes the first element; queue pop
-void qpop_v (vec_t *vec);
+// removes the first element
+void popf_v (vec_t *vec);
 
 // quality of life functions (read only)
 

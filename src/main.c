@@ -26,9 +26,9 @@ main (void)
     // works when vector is empty
 
     // append 3 values to the vector
-    push_v (vector, 0);
-    push_v (vector, 1);
-    push_v (vector, 2);
+    pushb_v (vector, 0);
+    pushb_v (vector, 1);
+    pushb_v (vector, 2);
 
     // print information
     // size_v() gets the size of the vector
@@ -38,8 +38,8 @@ main (void)
     printf ("1st index: %d\n", *get_v (vector, 1));
     printf ("2nd index: %d\n", *get_v (vector, 2));
 
-    // spop_v(vector);  <- deletes the last value like a stack
-    // qpop_v(vector);  <- deletes the first value like a queue
+    // popb_v(vector);  <- deletes the last value
+    // popf_v(vector);  <- deletes the first value
 
     erase_v (vector, 1); // erases the element at a certain index
     printf ("updated 1st index after erase: %d\n", *get_v (vector, 1));
