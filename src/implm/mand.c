@@ -43,4 +43,6 @@ cleanup_v (vec_t *vec)
     }
     if (ptr2 == NULL)
         free (ptr2);
+
+    free (vec);
 }

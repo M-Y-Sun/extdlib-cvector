@@ -96,61 +96,20 @@ resize_v (vec_t *vec, size_t size, int data)
         return;
     }
 
-    if (vec->size == size) {
-        // if the requested size = current size, do nothing
+    // if the requested size = current size, do nothing
+    if (vec->size == size)
         return;
-    }
-
-    struct elem_t *iter = vec->front;
 
     // if the vector wants to be shrunk,
-    // delete the elements overflowing the size
+    // pop the elements overflowing the size
     if (size < vec->size) {
-        for (size_t i = 0; i < size - 1; ++i) {
-            iter = iter->next;
-        }
+        while (vec->size > size)
+            popb_v (vec);
 
-        // iter is pointing to the last element
-        // delete and free the elements including and after iter using the
-        // faster cleanup algorithm
-        if (vec->size - size == 1) {
-            free (iter); // if there is only 1 element to delete
-        } else {
-            // iter is now pointing to the first element out of bounds
-            struct elem_t *ptr1 = iter;
-            struct elem_t *ptr2 = iter;
-            for (size_t i = 0; i < vec->size - size; ++i) {
-                ptr1 = ptr2;
-                ptr2 = ptr1->next;
-                free (ptr1);
-            }
-
-            if (ptr2 == NULL) {
-                free (ptr2);
-            }
-        }
-
-        vec->size = size;
-
-        // if the vector wants to be enlarged, add initialized elements to end
-    } else {
-        for (size_t i = 0; i < vec->size - 1; ++i) {
-            iter = iter->next;
-        }
-        for (size_t i = vec->size; i < size; ++i) {
-            struct elem_t *new
-                = (struct elem_t *)malloc (sizeof (struct elem_t));
-            if (new == NULL) {
-                perror ("[ \033[1;31mFAILED\033[0m ] malloc: "
-                        "memory request "
-                        "service failed\n");
-                return;
-            }
-            new->data = data;
-            iter->next = new;
-            iter = new;
-        }
-        vec->size = size;
+    } else { // if the vector wants to be enlarged, add initialized elements to
+             // end
+        while (vec->size < size)
+            pushb_v (vec, data);
     }
 }
 
