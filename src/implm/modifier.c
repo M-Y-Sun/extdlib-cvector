@@ -131,8 +131,8 @@ resize_v (vec_t *vec, size_t size, int data)
         }
 
         vec->size = size;
-        // if the vector wants to be enlarged,
-        // add initialized elements to the add
+
+        // if the vector wants to be enlarged, add initialized elements to end
     } else {
         for (size_t i = 0; i < vec->size - 1; ++i) {
             iter = iter->next;
