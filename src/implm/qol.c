@@ -18,11 +18,11 @@
  * Such functions do not exist for C++ vectors.                              *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#include <limits.h>
+#include <stdio.h>
 #include "../include/devhelper.h"
 #include "../include/structs.h"
 #include "../include/vector.h"
-#include <limits.h>
-#include <stdio.h>
 
 // prints the vector in a certain range of [beg, end)
 // format: [ 0 , 1 , 2 , 3 ]

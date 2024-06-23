@@ -12,15 +12,12 @@
  * 'elem_t' struct            (from "structs.h")                             *
  *                                                                           *
  * NOTES:                                                                    *
- * vec_ttor will be unchanged after funcion call.                            *
+ * vector will be unchanged after funcion call.                              *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef READONLY_C
-#define READONLY_C
-
+#include <stdio.h>
 #include "../include/structs.h"
 #include "../include/vector.h"
-#include <stdio.h>
 
 // returns the length of the vector
 size_t
@@ -55,5 +52,3 @@ empty_v (vec_t *vec)
         return 1;
     return 0;
 }
-
-#endif

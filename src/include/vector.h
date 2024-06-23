@@ -15,7 +15,7 @@
 #define VECTOR_H
 
 // vec_t struct and elem_t struct
-#include "structs.h"
+#include "./structs.h"
 
 // helper function; devonly
 // gets the element iterator to the requested beginning of the operation

@@ -20,9 +20,9 @@
 #ifndef MODIFIER_C
 #define MODIFIER_C
 
+#include <stdio.h>
 #include "../include/structs.h"
 #include "../include/vector.h"
-#include <stdio.h>
 
 // clears everything in the vector
 void
@@ -102,6 +102,7 @@ resize_v (vec_t *vec, size_t size, int data)
     }
 
     struct elem_t *iter = vec->front;
+
     // if the vector wants to be shrunk,
     // delete the elements overflowing the size
     if (size < vec->size) {
@@ -115,8 +116,7 @@ resize_v (vec_t *vec, size_t size, int data)
         if (vec->size - size == 1) {
             free (iter); // if there is only 1 element to delete
         } else {
-            iter = iter->next; // pointing to the first element out of
-                               // bounds
+            // iter is now pointing to the first element out of bounds
             struct elem_t *ptr1 = iter;
             struct elem_t *ptr2 = iter;
             for (size_t i = 0; i < vec->size - size; ++i) {
@@ -129,6 +129,7 @@ resize_v (vec_t *vec, size_t size, int data)
                 free (ptr2);
             }
         }
+
         vec->size = size;
         // if the vector wants to be enlarged,
         // add initialized elements to the add

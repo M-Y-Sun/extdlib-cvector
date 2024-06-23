@@ -11,9 +11,9 @@
  * 'malloc' function        (from <stdlib.h>)                                *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#include "include/vector.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "include/vector.h"
 
 int
 main (void)

@@ -15,9 +15,9 @@
  * Functions in this file should only be used by the developer.              *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#include <stdio.h>
 #include "../include/structs.h"
 #include "../include/vector.h"
-#include <stdio.h>
 
 // gets the element iterator to the requested beginning of the operation
 struct elem_t *
