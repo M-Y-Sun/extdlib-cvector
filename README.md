@@ -1,11 +1,11 @@
 # Extended Library: Vector in C
 
-C++ styled dynamic array (vector) using pointers and structured like a linked list, written in C
+C++ styled dynamic array (vector) as a linked list, written in C.
 
 For simple projects, using a dynamic array to set an array bound is much easier and memory efficient than setting a huge upper bound.
 Setting an upper bound could waste tons of memory and be hard to keep track of.
 When developers are limited to using C, a simple dynamic array makes code simpler and take less memory.
-Functions are concisely named to match the naming style of C standard library functions, such as a function named `spop_v` compared to `sscanf_s` in `<stdlib.h>`.
+Functions are concisely named to match the naming style of C standard library functions, such as a function named `pushb_v` compared to `sscanf_s` in `<stdlib.h>`.
 
 ### Usage
 
@@ -35,55 +35,79 @@ See `GUIDELINES.md` for contribution guidelines
 
 ##### Install `gcc` Compiler
 
-Debian/Windows (WSL2):
+<details>
+<summary>Debian/Windows (WSL2)</summary>
 
 ```
 $ sudo apt install gcc
 ```
 
-Arch:
+</details>
+
+<details>
+<summary>Arch</summary>
 
 ```
 $ sudo pacman -S gcc
 ```
 
-Fedora:
+</details>
+
+<details>
+<summary>Fedora</summary>
 
 ```
 $ sudo dnf install gcc
 ```
 
-macOS (installs clang):
+</details>
+
+<details>
+<summary>macOS (installs LLVM Clang)</summary>
 
 ```
 $ brew install llvm
 ```
 
-##### Install `.clang-format` Formatter (config provided)
+</details>
 
-Debian/Windows (WSL2):
+##### Install ClangFormat (config provided)
+
+<details>
+<summary>Debian/Windows (WSL2)</summary>
 
 ```
 $ sudo apt install clang-format
 ```
 
-Arch:
+</details>
+
+<details>
+<summary>Arch</summary>
 
 ```
 $ sudo pacman -S clang-format
 ```
 
-Fedora:
+</details>
+
+<details>
+<summary>Fedora</summary>
 
 ```
 $ sudo dnf install clang-tools-extra
 ```
 
-macOS:
+</details>
+
+<details>
+<summary>macOS</summary>
 
 ```
 $ brew install clang-format
 ```
+
+</details>
 
 ### Important
 
