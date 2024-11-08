@@ -17,7 +17,7 @@
 
 // mandatory functions
 
-// initialization
+/** Initializes a `vec_t` instance. */
 void
 setup_v (vec_t *vec)
 {
@@ -25,7 +25,7 @@ setup_v (vec_t *vec)
     vec->front = NULL;
 }
 
-// free all the memory
+/** Cleans up a `vec_t` instance to free allocated memory. */
 void
 cleanup_v (vec_t *vec)
 {

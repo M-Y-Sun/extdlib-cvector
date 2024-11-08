@@ -11,83 +11,112 @@
  * 'vec_t' struct           (from 'structs.h')                               *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef VECTOR_H
-#define VECTOR_H
+#pragma once
 
-// vec_t struct and elem_t struct
 #include "./structs.h"
 
-// helper function; devonly
-// gets the element iterator to the requested beginning of the operation
-struct elem_t *iter_begin (vec_t *vec, size_t beg);
+/****** MUST INCLUDE ******/
 
-// must include
-
-// initialization
+/** Initializes a `vec_t` instance. */
 void setup_v (vec_t *vec);
 
-// free all the memory
+/** Cleans up a `vec_t` instance to free allocated memory. */
 void cleanup_v (vec_t *vec);
 
-// read only functions
+/****** READ ONLY FUNCTIONS ******/
 
-// returns the length of the vector
+/** @return The length of the vector */
 size_t size_v (vec_t *vec);
 
-// returns the first value
+/** @return A pointer to the first value */
 int front_v (vec_t *vec);
 
-// returns the last value
+/** @return A pointer to the last value */
 int back_v (vec_t *vec);
 
-// checks if the vector is empty (1 = true; 0 = false)
+/** @return If the vector is empty */
 int empty_v (vec_t *vec);
 
-// modifier functions
+/****** MODIFIER FUNCTIONS ******/
 
-// clears everything in the vector
+/** Deletes all elements in the vector. */
 void clear_v (vec_t *vec);
 
-// fills an empty vector with specified size and initializes all values to a
-// specified value
+/**
+ * Fills an empty vector to a specified size and initializes all values to a
+ * specified value
+ * @param size The size to assign to
+ * @param data The data to assign each element to
+ * */
 void assign_v (vec_t *vec, size_t size, int data);
 
-// resizes the vector and initializes all values to a specified value
+/**
+ * Resizes the vector and initiates all values to a specific value
+ * @param size The size to resize to
+ * @param data The data to assign each new value to
+ * */
 void resize_v (vec_t *vec, size_t size, int data);
 
-// adds an element to the end
+/**
+ * Adds an element to the end
+ * @param data The data to append
+ * */
 void pushb_v (vec_t *vec, int data);
 
-// returns a pointer to the value at a certain position
+/**
+ * @param pos The position to get
+ * @return A pointer to the value at a certain location.
+ * */
 int *get_v (vec_t *vec, size_t pos);
 
-// inserts an element in a specified position
+/**
+ * Inserts an element in a specified position
+ * @param pos The position to insert at
+ * @param data The data to insert
+ * */
 struct elem_t *insert_v (vec_t *vec, size_t pos, int data);
 
-// swaps the value of two elements in a specified position
+/**
+ * Swaps the value of two elements in a specified position
+ * @param i1 The index of the first element
+ * @param i2 The index of the second element
+ * */
 void swap_v (vec_t *vec, size_t i1, size_t i2);
 
-// deletes an elemtent in a specified position
+/**
+ * Deletes an element in a specified position
+ * @param pos The position to erase
+ * */
 void erase_v (vec_t *vec, size_t pos);
 
-// removes the last element
+/** Removes the last element */
 void popb_v (vec_t *vec);
 
-// removes the first element
+/** Removes the first element */
 void popf_v (vec_t *vec);
 
-// quality of life functions (read only)
+/****** QUALITY OF LIFE FUNCTIONS (READ ONLY) ******/
 
-// prints the vector in a certain range of [beg, end)
-// format: [ 0 , 1 , 2 , 3 ]
+/**
+ * Prints the vector in a certain range specified by [beg, end)
+ *
+ * Print format: '[ 0 , 1 , 2 , 3 ]'
+ *
+ * @param beg The beginning index
+ * @param end The ending index
+ * */
 void print_v (vec_t *vec, size_t beg, size_t end);
 
-// gets the sum of the elements of a vector in a certain range, returns 0 if it
-// exceeds limit
+/**
+ * @return The sum of the elements of a vector in a certain range [beg, end).
+ * @param beg The beginning index
+ * @param end The ending index
+ * */
 int64_t sum_v (vec_t *vec, size_t beg, size_t end);
 
-// gets the product of the elements of a vector in a certain range, returns 0
-// if it exceeds limit
+/**
+ * @return The product of the elements of a vector in a certain range
+ * @param beg The beginning index
+ * @param end The ending index
+ * */
 int64_t prod_v (vec_t *vec, size_t beg, size_t end);
-
-#endif

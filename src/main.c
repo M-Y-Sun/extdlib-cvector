@@ -13,7 +13,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "include/vector.h"
+
+#include "vector.h"
 
 int
 main (void)
@@ -63,8 +64,9 @@ main (void)
     resize_v (vector, 3, -1);
     printf ("size after second resize: %lu\n", size_v (vector));
 
+    // gets the first and last value respectively
     printf ("(first value, last value): (%d, %d)\n", front_v (vector),
-            back_v (vector)); // gets the first and last value respectively
+            back_v (vector));
 
     printf ("elements 0 to 1: ");
     print_v (vector, 0, 2);

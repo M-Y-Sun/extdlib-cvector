@@ -16,39 +16,39 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <stdio.h>
-#include "../include/structs.h"
-#include "../include/vector.h"
 
-// returns the length of the vector
+#include "structs.h"
+#include "vector.h"
+
+/** @return The length of the vector */
 size_t
 size_v (vec_t *vec)
 {
     return vec->size;
 }
 
-// returns the first value
+/** @return A pointer to the first value */
 int
 front_v (vec_t *vec)
 {
     return vec->front->data;
 }
 
-// returns the last value
+/** @return A pointer to the last value */
 int
 back_v (vec_t *vec)
 {
     struct elem_t *iter = vec->front;
-    for (size_t i = 0; i < vec->size - 1; ++i) {
+
+    for (size_t i = 0; i < vec->size - 1; ++i)
         iter = iter->next;
-    }
+
     return iter->data;
 }
 
-// checks if the vector is empty (1 = true; 0 = false)
+/** @return If the vector is empty */
 int
 empty_v (vec_t *vec)
 {
-    if (vec->front == NULL)
-        return 1;
-    return 0;
+    return vec->front == NULL;
 }

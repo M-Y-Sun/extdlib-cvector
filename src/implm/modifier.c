@@ -17,14 +17,13 @@
  * Modifications may include change in size or specific elements.            *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef MODIFIER_C
-#define MODIFIER_C
-
 #include <stdio.h>
-#include "../include/structs.h"
-#include "../include/vector.h"
 
-// clears everything in the vector
+#include "devhelper.h"
+#include "structs.h"
+#include "vector.h"
+
+/** Deletes all elements in the vector. */
 void
 clear_v (vec_t *vec)
 {
@@ -46,8 +45,12 @@ clear_v (vec_t *vec)
     vec->front = NULL;
 }
 
-// fills an empty vector with specified size and initializes all values to a
-// specified value
+/**
+ * Fills an empty vector to a specified size and initializes all values to a
+ * specified value
+ * @param size The size to assign to
+ * @param data The data to assign each element to
+ * */
 void
 assign_v (vec_t *vec, size_t size, int data)
 {
@@ -58,9 +61,10 @@ assign_v (vec_t *vec, size_t size, int data)
         return;
     }
 
+    // if the vector already contains elements, dont do anything
     if (vec->front != NULL || vec->size != 0)
-        // if the vector already contains elements, dont do anything
         return;
+
     vec->size = size;
     struct elem_t *new = (struct elem_t *)malloc (sizeof (struct elem_t));
     if (new == NULL) {
@@ -85,7 +89,11 @@ assign_v (vec_t *vec, size_t size, int data)
     }
 }
 
-// resizes the vector and initializes all values to a specified value
+/**
+ * Resizes the vector and initiates all values to a specific value
+ * @param size The size to resize to
+ * @param data The data to assign each new value to
+ * */
 void
 resize_v (vec_t *vec, size_t size, int data)
 {
@@ -113,7 +121,10 @@ resize_v (vec_t *vec, size_t size, int data)
     }
 }
 
-// adds an element to the end
+/**
+ * Adds an element to the end
+ * @param data The data to append
+ * */
 void
 pushb_v (vec_t *vec, int data)
 {
@@ -124,11 +135,11 @@ pushb_v (vec_t *vec, int data)
         return;
     }
 
-    if (vec->front == NULL) { // if empty
+    if (vec->front == NULL) {
         new->data = data;
         vec->front = new;
         new->next = NULL;
-    } else { // if not empty
+    } else {
         // find the position
         struct elem_t *cur = vec->front;
         struct elem_t *prev = vec->front;
@@ -142,10 +153,14 @@ pushb_v (vec_t *vec, int data)
         cur->data = data;
         prev->next = cur;
     }
+
     ++(vec->size);
 }
 
-// returns a pointer to the value at a certain position
+/**
+ * @param pos The position to get
+ * @return A pointer to the value at a certain location.
+ * */
 int *
 get_v (vec_t *vec, size_t pos)
 {
@@ -163,7 +178,11 @@ get_v (vec_t *vec, size_t pos)
     return &(iter->data);
 }
 
-// inserts an element in a specified position
+/**
+ * Inserts an element in a specified position
+ * @param pos The position to insert at
+ * @param data The data to insert
+ * */
 struct elem_t *
 insert_v (vec_t *vec, size_t pos, int data)
 {
@@ -196,7 +215,11 @@ insert_v (vec_t *vec, size_t pos, int data)
     return new;
 }
 
-// swaps the value of two elements in a specified position
+/**
+ * Swaps the value of two elements in a specified position
+ * @param i1 The index of the first element
+ * @param i2 The index of the second element
+ * */
 void
 swap_v (vec_t *vec, size_t i1, size_t i2)
 {
@@ -216,29 +239,34 @@ swap_v (vec_t *vec, size_t i1, size_t i2)
     }
 
     // read the data
-    struct elem_t *iter
-        = iter_begin (vec, i1); // get to the first index and read value
+
+    // get to the first index and read value
+    struct elem_t *iter = iter_begin (vec, i1);
 
     int data1 = iter->data;
-    for (size_t i = i1; i < i2; ++i) {
+
+    for (size_t i = i1; i < i2; ++i)
         iter = iter->next;
-    }
 
     int data2 = iter->data;
 
     // set the data
-    iter = iter_begin (
-        vec, i1); // get to the first index and change to the swapped value
+
+    // get to the first index and change to the swapped value
+    iter = iter_begin (vec, i1);
 
     iter->data = data2;
-    for (size_t i = i1; i < i2; ++i) {
+
+    for (size_t i = i1; i < i2; ++i)
         iter = iter->next;
-    }
 
     iter->data = data1;
 }
 
-// deletes an elemtent in a specified position
+/**
+ * Deletes an element in a specified position
+ * @param pos The position to erase
+ * */
 void
 erase_v (vec_t *vec, size_t pos)
 {
@@ -250,11 +278,11 @@ erase_v (vec_t *vec, size_t pos)
         return;
     }
 
-    // indirect pointer points to the address of the element to be removed
+    // points to the address of the element to be removed
     struct elem_t **indirect = &vec->front;
-    for (size_t i = 0; i < pos; ++i) {
+
+    for (size_t i = 0; i < pos; ++i)
         indirect = &(*indirect)->next;
-    }
 
     // simply remove the element and free memory
     struct elem_t *free_ptr = *indirect;
@@ -262,7 +290,7 @@ erase_v (vec_t *vec, size_t pos)
     free (free_ptr);
 }
 
-// removes the last element
+/** Removes the last element */
 void
 popb_v (vec_t *vec)
 {
@@ -272,13 +300,15 @@ popb_v (vec_t *vec)
         return;
     }
 
-    struct elem_t *rm
-        = iter_begin (vec, vec->size - 1); // get iterator to the last element
-    free (rm);
+    // get iterator to the last element
+    struct elem_t *p_rm = iter_begin (vec, vec->size - 1);
+
+    free (p_rm);
+
     --(vec->size);
 }
 
-// removes the first element
+/** Removes the first element */
 void
 popf_v (vec_t *vec)
 {
@@ -288,10 +318,11 @@ popf_v (vec_t *vec)
         return;
     }
 
-    struct elem_t *rm = vec->front;
-    vec->front = vec->front->next; // set the front equal to the next element
-    free (rm);
+    // set the front equal to the next element
+    struct elem_t *p_rm = vec->front;
+    vec->front = vec->front->next;
+
+    free (p_rm);
+
     --(vec->size);
 }
-
-#endif
