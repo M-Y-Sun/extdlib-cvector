@@ -45,3 +45,7 @@ dbg/
 
 # Executable binaries
 bin/
+
+# compile commands
+compile_commands.json
+.cache
