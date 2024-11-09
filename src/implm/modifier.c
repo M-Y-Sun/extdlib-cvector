@@ -290,39 +290,49 @@ erase_v (vec_t *vec, size_t pos)
     free (free_ptr);
 }
 
-/** Removes the last element */
-void
+/**
+ * Removes the last element.
+ * @return The data stored by the popped value.
+ * */
+int
 popb_v (vec_t *vec)
 {
     if (vec->size == 0) {
         perror ("[ \033[1;31mFAILED\033[0m ] popb_v: cannot remove elements "
                 "in an empty vector");
-        return;
+        return 0;
     }
 
     // get iterator to the last element
     struct elem_t *p_rm = iter_begin (vec, vec->size - 1);
+    int val = p_rm->data;
 
     free (p_rm);
-
     --(vec->size);
+
+    return val;
 }
 
-/** Removes the first element */
-void
+/**
+ * Removes the first element.
+ * @return The data stored by the popped value.
+ * */
+int
 popf_v (vec_t *vec)
 {
     if (vec->size == 0) {
         perror ("[ \033[1;31mFAILED\033[0m ] popf_v: cannot remove elements "
                 "in an empty vector");
-        return;
+        return 0;
     }
 
     // set the front equal to the next element
     struct elem_t *p_rm = vec->front;
     vec->front = vec->front->next;
+    int val = p_rm->data;
 
     free (p_rm);
-
     --(vec->size);
+
+    return val;
 }

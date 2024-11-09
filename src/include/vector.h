@@ -89,11 +89,17 @@ void swap_v (vec_t *vec, size_t i1, size_t i2);
  * */
 void erase_v (vec_t *vec, size_t pos);
 
-/** Removes the last element */
-void popb_v (vec_t *vec);
+/**
+ * Removes the last element.
+ * @return The data stored by the popped value.
+ * */
+int popb_v (vec_t *vec);
 
-/** Removes the first element */
-void popf_v (vec_t *vec);
+/**
+ * Removes the first element.
+ * @return The data stored by the popped value.
+ * */
+int popf_v (vec_t *vec);
 
 /****** QUALITY OF LIFE FUNCTIONS (READ ONLY) ******/
 

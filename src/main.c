@@ -39,8 +39,8 @@ main (void)
     printf ("1st index: %d\n", *get_v (vector, 1));
     printf ("2nd index: %d\n", *get_v (vector, 2));
 
-    // popb_v(vector);  <- deletes the last value
-    // popf_v(vector);  <- deletes the first value
+    // int bv = popb_v(vector);  <- deletes the last value and stores it in bv
+    // int fv = popf_v(vector);  <- deletes the first value and stores it in fv
 
     erase_v (vector, 1); // erases the element at a certain index
     printf ("updated 1st index after erase: %d\n", *get_v (vector, 1));
