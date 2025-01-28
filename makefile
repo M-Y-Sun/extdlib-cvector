@@ -1,30 +1,44 @@
-CC ?= gcc
+CC = clang
 CFLAGS = -I./$(INCL) -g -Wall -Wextra -Wpedantic
+OFLAG ?= O1
 
-MAIN ?=  src/main.c
-SRC_DIR := src/implm
+FILE = main
+MAIN ?=  src/$(FILE).c
+BIN = $(FILE).elf
+
+IMPL_DIR := src/implm
 INCL := src/include/
-BIN ?= bin/main.elf
+
+MKDIRS = /bin/bash -c 'if [ ! -d bin/ ]; then mkdir bin/; fi; if [ ! -d dbg/ ]; then mkdir dbg/; fi'
+REPLACE_FILES = /bin/bash -c 'if [ -d dbg/$(BIN).dSYM/ ]; then rm -r dbg/$(BIN).dSYM/; fi; if [ -d bin/$(BIN).dSYM/ ]; then mv bin/$(BIN).dSYM/ dbg//; fi'
+
+CCPFX = $(CC) $(MAIN) $(IMPL_DIR)/*.c -o bin/$(BIN) $(CFLAGS) 
 
 default: $(MAIN)
-	if [ ! -d bin/ ]; then mkdir bin/; fi
-	if [ ! -d dbg/ ]; then mkdir dbg/; fi
+	$(MKDIRS)
+	$(CCPFX) -$(OFLAG)
+	$(REPLACE_FILES)
 
-	$(CC) $(MAIN) $(SRC_DIR)/*.c -o $(BIN) $(CFLAGS) 
+fast:
+	$(MKDIRS)
+	$(CCPFX) -Ofast
+	$(REPLACE_FILES)
 
-	if [ -d dbg/main.elf.dSYM/ ]; then rm -r dbg/main.elf.dSYM/; fi
-	if [ -d bin/main.elf.dSYM/ ]; then mv bin/main.elf.dSYM/ dbg//; fi
+debug:
+	$(MKDIRS)
+	$(CCPFX) -Og
+	$(REPLACE_FILES)
+
+size:
+	$(MKDIRS)
+	$(CCPFX) -Os
+	$(REPLACE_FILES)
 
 verbose: $(MAIN)
-	if [ ! -d bin/ ]; then mkdir bin/; fi
-	if [ ! -d dbg/ ]; then mkdir dbg/; fi
+	$(MKDIRS)
+	$(CCPFX) -$(OFLAG) -v
+	$(REPLACE_FILES)
 
-	$(CC) $(MAIN) $(SRC_DIR)/*.c -o $(BIN) $(CFLAGS) -v
-
-	if [ -d dbg/main.elf.dSYM/ ]; then rm -r dbg/main.elf.dSYM/; fi
-	if [ -d bin/main.elf.dSYM/ ]; then mv bin/main.elf.dSYM/ dbg//; fi
-
-clean: $(BIN) $(BIN).dSYM/
-	rm $(BIN)
-	rm -r $(BIN).dSYM/
-	
+clean: bin/$(BIN) dbg/$(BIN).dSYM/
+	rm bin/$(BIN)
+	rm -r dbg/$(BIN).dSYM/
