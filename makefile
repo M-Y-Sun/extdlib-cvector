@@ -4,7 +4,7 @@ OFLAG ?= O1
 
 FILE = main
 MAIN ?=  src/$(FILE).c
-BIN = $(FILE).elf
+BIN = $(FILE)
 
 IMPL_DIR := src/implm
 INCL := src/include/
