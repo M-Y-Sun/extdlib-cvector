@@ -1,5 +1,7 @@
 # Extended Library: Vector in C
 
+**Notice: This repository has been archived and has been migrated to https://github.com/s7a19t4r/c-dsa**
+
 C++ styled dynamic array (vector) as a linked list, written in C.
 
 For simple projects, using a dynamic array to set an array bound is much easier and memory efficient than setting a huge upper bound.
@@ -12,9 +14,9 @@ Functions are concisely named to match the naming style of C standard library fu
 1. Create a directory to store the source files (ex. `~/.extdlib/c/`)
 2. `cd` to the file (ex `cd ~/.extdlib/c/`)
 3. Clone this repository into the directory:
-   ```
-   $ git clone https://github.com/s7a19t4r/extdlib-cvector
-   ```
+    ```
+    $ git clone https://github.com/s7a19t4r/extdlib-cvector
+    ```
 4. Place the header file named `vector.h` in a directory (ex. ~/.extdlib/c/vector.h).
 5. Add `-L[filepath]` to your compile flags (ex. `-L~/.extdlib/c/extdlib-cvector/src/`).
 6. Compile your source file as normal (ex. `gcc -L~/.extdlib/c/extdlib-cvector/src/ main.c -o main.elf`)
